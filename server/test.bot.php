@@ -10,7 +10,7 @@
 
 
 // inclusion de la classe
-require 'phpwebsocket/websocket.class.php';
+require './phpwebsocket/websocket.class.php';
 
 
 // extension de la classe websocket
