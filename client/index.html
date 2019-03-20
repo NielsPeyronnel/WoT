@@ -1,99 +1,85 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>HTML5 : Web Sockets</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>#trashTagChallenge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
-<body>
-
-<div class="wrap">
-    <form>
-        <p id="readyState">readyState : <span id="rs">&nbsp;</span></p>
-        <p><strong>Journal</strong></p>
-        <div name="log" id="log"></div>
-        <p>
-            <label for="texte">Envoyer</label>
-            <input type="text" name="texte" id="texte">
-            <input type="submit" value="OK" id="valid">
-        </p>
-        <p><strong>Commandes</strong></p>
-        <ul>
-            <li><kbd>hello</kbd> : saluer</li>
-            <li><kbd>date</kbd> : demander la date</li>
-            <li><kbd>bye</kbd> ou <kbd>ciao</kbd> : quitter</li>
-        </ul>
-    </form>
-    <p>
-    <input type="submit" value="Reconnect" id="reco" onClick="window.location.reload()">
-    </p>
-</div>
-
 <script>
-    var ws = null;
-
-    //création du socket
-    ws = new WebSocket("ws://54.38.38.118:1337");
-    
-    if (ws !=='undefined') {
-        var rs = document.getElementById('rs');
-        var reco = document.getElementById('reco');
-        // Ouverture du socket
-        ws.onopen = function () {
-            log("Socket Ouvert");
-            rs.innerHTML = this.readyState;
-            reco.style.display ='none';
-        };
-        // Reception des données
-        ws.onmessage = function (e) {
-            log("< " + e.data);
-            rs.innerHTML = this.readyState;
-        };
-        // Erreur avec le socket
-        ws.onerror = function () {
-            log('Erreur de connexion');
-            rs.innerHTML = this.readyState;
-        };
-        // Fermeture de connexion 
-        ws.onclose = function (e) {
-            if (e.wasClean) {
-                log("Socket fermé proprement");
-            }
-            else {
-                log("Socket fermé");
-                if (e.reason) log(e.reason);
-            }
-            rs.innerHTML = this.readyState;
-            reco.style.display ='block';
-            reco.reload();
-        };
-        // Evénement submit du formulaire
-
-        document.getElementsByTagName('form')[0].onsubmit = function(e) {
-            var texte = document.getElementById('texte');
-            // Envoi de la chaîne texte
-            ws.send(texte.value);
-            log("> " + texte.value);
-            // Mise à zéro du champ et focus
-            texte.focus();
-            texte.value = '';
-            // Empêche de valider le formulaire
-            e.preventDefault();
-        };
-
-
-    } else {
-        console.log("Ce navigateur ne supporte pas les websockets");
+    var x = document.getElementById("test");
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
     }
-    
-
-    // Ajout de la fonction log
-    function log(txt) {
-        document.getElementById('log').innerHTML += txt + "<br>\n";
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
     }
-
-
-
-
 </script>
-</body>
+
+<body>
+<section class="hero is-primary">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="assets/logo_white.png" alt="Logo">
+                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+                </div>
+                <div id="navbarMenuHeroA" class="navbar-menu">
+                    <div class="navbar-end">
+                        <span class="navbar-item">
+              <a class="button is-primary is-inverted" href="https://github.com/NielsPeyronnel/WoT">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Mon projet</span>
+              </a>
+            </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">
+                Météo pour
+            </h1>
+            <h2 class="subtitle" id="test">
+
+            </h2>
+        </div>
+    </div>
+
+    <!-- Hero footer: will stick at the bottom -->
+    <div class="hero-foot">
+        <nav class="tabs">
+            <div class="container">
+                <ul>
+                    <li class="is-active"><a>Overview</a></li>
+                    <li><a>Modifiers</a></li>
+                    <li><a>Grid</a></li>
+                    <li><a>Elements</a></li>
+                    <li><a>Components</a></li>
+                    <li><a>Layout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>HTML5 : Web Sockets</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+
+<div class="wrap">
+    <form>
+        <p id="readyState">readyState : <span id="rs">&nbsp;</span></p>
+        <p><strong>Journal</strong></p>
+        <div name="log" id="log"></div>
+        <p>
+            <label for="texte">Envoyer</label>
+            <input type="text" name="texte" id="texte">
+            <input type="submit" value="OK" id="valid">
+        </p>
+        <p><strong>Commandes</strong></p>
+        <ul>
+            <li><kbd>hello</kbd> : saluer</li>
+            <li><kbd>date</kbd> : demander la date</li>
+            <li><kbd>bye</kbd> ou <kbd>ciao</kbd> : quitter</li>
+        </ul>
+    </form>
+    <p>
+    <input type="submit" value="Reconnect" id="reco" onClick="window.location.reload()">
+    </p>
+</div>
+
+<script>
+    var ws = null;
+
+    //création du socket
+    ws = new WebSocket("ws://54.38.38.118:1337");
+    
+    if (ws !=='undefined') {
+        var rs = document.getElementById('rs');
+        var reco = document.getElementById('reco');
+        // Ouverture du socket
+        ws.onopen = function () {
+            log("Socket Ouvert");
+            rs.innerHTML = this.readyState;
+            reco.style.display ='none';
+        };
+        // Reception des données
+        ws.onmessage = function (e) {
+            log("< " + e.data);
+            rs.innerHTML = this.readyState;
+        };
+        // Erreur avec le socket
+        ws.onerror = function () {
+            log('Erreur de connexion');
+            rs.innerHTML = this.readyState;
+        };
+        // Fermeture de connexion 
+        ws.onclose = function (e) {
+            if (e.wasClean) {
+                log("Socket fermé proprement");
+            }
+            else {
+                log("Socket fermé");
+                if (e.reason) log(e.reason);
+            }
+            rs.innerHTML = this.readyState;
+            reco.style.display ='block';
+            reco.reload();
+        };
+        // Evénement submit du formulaire
+
+        document.getElementsByTagName('form')[0].onsubmit = function(e) {
+            var texte = document.getElementById('texte');
+            // Envoi de la chaîne texte
+            ws.send(texte.value);
+            log("> " + texte.value);
+            // Mise à zéro du champ et focus
+            texte.focus();
+            texte.value = '';
+            // Empêche de valider le formulaire
+            e.preventDefault();
+        };
+
+
+    } else {
+        console.log("Ce navigateur ne supporte pas les websockets");
+    }
+    
+
+    // Ajout de la fonction log
+    function log(txt) {
+        document.getElementById('log').innerHTML += txt + "<br>\n";
+    }
+
+
+
+
+</script>
+</body>
