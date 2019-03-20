@@ -3,6 +3,11 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/paragonie/sodium_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/pusher/pusher-php-server" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>
