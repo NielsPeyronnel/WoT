@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2040cf2a-6eab-4a6d-b036-b95cda800856" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server_tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/server_tag.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -47,7 +48,7 @@
         <counts>
           <entry key="css" value="1" />
           <entry key="html" value="4" />
-          <entry key="php" value="7" />
+          <entry key="php" value="8" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
@@ -55,15 +56,15 @@
         <counts>
           <entry key="CSS" value="1" />
           <entry key="HTML" value="4" />
-          <entry key="PHP" value="7" />
+          <entry key="PHP" value="8" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="37" />
-          <entry key="html" value="3071" />
-          <entry key="php" value="1181" />
+          <entry key="html" value="3089" />
+          <entry key="php" value="1296" />
           <entry key="sql" value="8" />
           <entry key="txt" value="42" />
         </counts>
@@ -71,8 +72,8 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="37" />
-          <entry key="HTML" value="3071" />
-          <entry key="PHP" value="1181" />
+          <entry key="HTML" value="3089" />
+          <entry key="PHP" value="1296" />
           <entry key="PLAIN_TEXT" value="42" />
           <entry key="Scratch" value="8" />
         </counts>
@@ -102,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="158" column="42" selection-start-line="158" selection-start-column="42" selection-end-line="158" selection-end-column="42" />
+            <state relative-caret-position="-8">
+              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
               <folding>
                 <element signature="e#5365#5371#1" expanded="true" />
                 <element signature="e#4130#4136#1" expanded="true" />
@@ -115,7 +116,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/test.bot.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-36">
               <caret column="17" selection-start-column="17" selection-end-column="17" />
             </state>
           </provider>
@@ -124,8 +125,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server_tag.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+            <state relative-caret-position="490">
+              <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/phpwebsocket/websocket.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -169,8 +179,8 @@
         <option value="$PROJECT_DIR$/client/style.css" />
         <option value="$PROJECT_DIR$/client/home.html" />
         <option value="$PROJECT_DIR$/server/test.bot.php" />
-        <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d1f8c048-b708-4675-bba3-2e8d99639075/console.sql" />
+        <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/server/server_tag.php" />
       </list>
     </option>
@@ -239,7 +249,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553283148236" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553283510282" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -271,25 +281,25 @@
       <workItem from="1552987849479" duration="7986000" />
       <workItem from="1553105413852" duration="4062000" />
       <workItem from="1553246507257" duration="48000" />
-      <workItem from="1553246559540" duration="10123000" />
+      <workItem from="1553246559540" duration="10483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22723000" />
+    <option name="totallyTimeSpent" value="23083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="982" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17094018" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17094018" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
-      <window_info active="true" anchor="bottom" id="Database Console" visible="true" weight="0.32921347" />
+      <window_info anchor="bottom" id="Database Console" visible="true" weight="0.32921347" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -337,10 +347,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html.old">
+    <entry file="file://$PROJECT_DIR$/server/test.bot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+        <state relative-caret-position="-36">
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -351,10 +361,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html.old">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="158" column="42" selection-start-line="158" selection-start-column="42" selection-end-line="158" selection-end-column="42" />
+        <state relative-caret-position="-8">
+          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
           <folding>
             <element signature="e#5365#5371#1" expanded="true" />
             <element signature="e#4130#4136#1" expanded="true" />
@@ -362,17 +379,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/test.bot.php">
+    <entry file="file://$PROJECT_DIR$/server/phpwebsocket/websocket.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        <state relative-caret-position="253">
+          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server_tag.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+        <state relative-caret-position="490">
+          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
         </state>
       </provider>
     </entry>

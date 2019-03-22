@@ -31,10 +31,15 @@ $row = $result->num_rows;
 
 
 class event extends WebSocket {
-    function process($user){
-        $this->send($user->socket,"1");
+    function process($user, $msg){
+        $this->send($user->socket,$msg);
     }
 }
 
+
+
+
 $master = new event("54.38.38.118",1337);
+
+$master->process($user->socket,$row);
 ?>
