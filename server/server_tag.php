@@ -27,13 +27,12 @@ $query = "SELECT * FROM Event";
 $result = $conn->query($query);
 $row = $result->num_rows;
 
-echo $row."\n\n";
 
 
 
 class event extends WebSocket {
-    function process($user){
-        $this->send($user->socket,"3");
+    function process($user, $row){
+        $this->send($user->socket,$row);
     }
 }
 
