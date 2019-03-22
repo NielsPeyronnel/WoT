@@ -21,27 +21,14 @@ if ($conn->connect_error) {
 }
 echo "[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
 
-class ChatBot extends WebSocket {
-    function process($user, $msg){
-        $this->say("<  ".$msg);
-        switch ($msg){
-            case 'hello':
-                $this->send($user->socket,"Bonjour");
-                break;
-            case 'date':
-                $this->send($user->socket,"Nous sommes le ".date("d/m/y"));
-                break;
-            case 'bye':
-            case 'ciao':
-                $this->send($user->socket,"Au revoir !");
-                $this->disconnect($user->socket);
-                break;
-            default:
-                $this->send($user->socket,"Je n'ai pas compris");
-                break;
-        }
+$nb_event = "SELECT COUNT(id) FROM Event";
+echo "[".date("H:i:s")."] --{MYSQL}-- Résultat requête\n\n".$conn->query($nb_event);
+
+class event extends WebSocket {
+    function process($user){
+        $this->send($user->socket,"3");
     }
 }
 
-$master = new ChatBot("54.38.38.118",1337);
+$master = new event("54.38.38.118",1337);
 ?>

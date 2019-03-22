@@ -124,9 +124,14 @@
 
 <footer class="footer">
     <div class="content has-text-centered">
+        <h2 class="title">Debug</h2>
         <p>
             Websocket <strong><span id="rs">&nbsp;</span></strong>
         </p>
+        <p>
+            La table Event possède <strong><span id="line_event">&nbsp;</span></strong> lignes
+        </p>
+
     </div>
 </footer>
 
@@ -142,6 +147,8 @@
 
     if (ws !=='undefined') {
         var rs = document.getElementById('rs');
+        var line_event = document.getElementById('line_event');
+
         // Ouverture du socket
         ws.onopen = function () {
                 rs.innerHTML = "connecté";
@@ -149,6 +156,7 @@
         // Reception des données
         ws.onmessage = function (e) {
             rs.innerHTML = this.readyState;
+            line_event.innerHTML = e.data;
         };
         // Erreur avec le socket
         ws.onerror = function () {
