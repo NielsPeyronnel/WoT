@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 
 echo "[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
 
-$query = "SELECT * FROM Event";
+$query = "SELECT * FROM Event;";
 $result = $conn->query($query);
 $row = $result->current_field;
 
