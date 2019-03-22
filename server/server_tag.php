@@ -23,13 +23,12 @@ if ($conn->connect_error) {
 
 echo "[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
 
-$query = "SELECT * FROM Event;";
+$query = "SELECT COUNT(*) FROM Event";
 $result = $conn->query($query);
 $row = $result->current_field;
 
-var_dump($query);
-var_dump($result);
-var_dump($row);
+echo $result."\n\n";
+echo $row."\n\n";
 
 
 
