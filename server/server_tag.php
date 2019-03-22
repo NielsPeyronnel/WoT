@@ -28,13 +28,19 @@ $result = $conn->query($query);
 $row = $result->num_rows;
 
 
-
-
 class event extends WebSocket {
+
     function process($user, $msg){
-        while(true) {
-            $this->send($user->socket, $msg);
-        }
+        $servername = "localhost";
+        $username = "niels";
+        $password = "niteversion";
+        $databse ="phpmyadmin";
+        $conn = new mysqli($servername, $username, $password,$databse);
+        $query =null;
+        $query = "SELECT * FROM Event";
+        $result = $conn->query($query);
+        $row = $result->num_rows;
+        $this->send($user->socket,$row);
     }
 }
 
@@ -42,6 +48,4 @@ class event extends WebSocket {
 
 
 $master = new event("54.38.38.118",1337);
-
-$master->process($user->socket,$row);
 ?>
