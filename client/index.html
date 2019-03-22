@@ -155,6 +155,7 @@
         };
         // Reception des données
         ws.onmessage = function (e) {
+            console.log("récéption de données");
             rs.innerHTML = "réception";
             line_event.innerHTML = e.data;
         };

@@ -32,7 +32,9 @@ $row = $result->num_rows;
 
 class event extends WebSocket {
     function process($user, $msg){
-        $this->send($user->socket,$msg);
+        while(true) {
+            $this->send($user->socket, $msg);
+        }
     }
 }
 
