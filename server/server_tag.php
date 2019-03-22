@@ -11,9 +11,10 @@ require './phpwebsocket/websocket.class.php';
 $servername = "localhost";
 $username = "niels";
 $password = "niteversion";
+$databse ="phpmyadmin";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password,$databse);
 
 // Check connection
 if ($conn->connect_error) {
