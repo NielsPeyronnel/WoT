@@ -17,14 +17,14 @@ $conn = new mysqli($servername, $username, $password);
 
 // Check connection
 if ($conn->connect_error) {
-    die("[".date("hh:mm")."] {MYSQL}Connection echec\n\n" . $conn->connect_error);
+    die("[".date("H:i")."] --{MYSQL}-- Connection echec\n\n" . $conn->connect_error);
 }
-echo "[".date("hh:mm")."] {MYSQL}Connection établie\n\n";
+echo "[".date("H:i")."] --{MYSQL}-- Connection établie\n\n";
 
 class ChatBot extends WebSocket {
     function process($user, $msg){
         $this->say("<  ".$msg);
-        switch ($msg){\n
+        switch ($msg){
             case 'hello':
                 $this->send($user->socket,"Bonjour");
                 break;
