@@ -27,7 +27,6 @@ $query = "SELECT COUNT(*) FROM Event";
 $result = $conn->query($query);
 $row = $result->current_field;
 
-echo $result."\n\n";
 echo $row."\n\n";
 
 
