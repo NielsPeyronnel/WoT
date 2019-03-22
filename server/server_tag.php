@@ -24,7 +24,7 @@ echo "[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
 
 $query = "SELECT * FROM Event";
 $result = $conn->query($query);
-$row = $result->fetch_row();
+$row = $result->current_field;
 
 var_dump($query);
 var_dump($result);
