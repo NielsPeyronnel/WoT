@@ -22,8 +22,7 @@ if ($conn->connect_error) {
 echo "[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
 
 $nb_event = "SELECT COUNT(*) FROM `Event`";
-$result = $conn->query($nb_event);
-var_dump($result);
+var_dump($conn->query($nb_event));
 
 class event extends WebSocket {
     function process($user){
