@@ -17,8 +17,9 @@ $conn = new mysqli($servername, $username, $password);
 
 // Check connection
 if ($conn->connect_error) {
-    die("[".date("H:i:s")."] --{MYSQL}-- Connection echec\n\n" . $conn->connect_error);
+    die("[".date("H:i:s")."] --{MYSQL}-- Connection echec (" . $conn->connect_error.")\n\n");
 }
+
 echo "[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
 
 var_dump($conn->query("SELECT COUNT(*) FROM `Event`"));
