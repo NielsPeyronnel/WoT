@@ -6,8 +6,136 @@
     <title>#trashTagChallenge</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</head>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <style>
+        #login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #F7F7F7;
+        }
 
+        #login .login-card {
+            background: #fff;
+            width: 24rem;
+            box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.11);
+        }
+
+        #login .login-card .card-title {
+            background-color: #00b89c;
+            padding: 2rem;
+        }
+
+        #login .login-card .card-title h1 {
+            color: #fff;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        #login .login-card .content {
+            padding: 3rem 2.5rem 5rem;
+        }
+
+        #login .login-card #username, #login .login-card #password {
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+            margin-bottom: 1.75rem;
+            padding: 0.25rem 0;
+            border: none;
+            border-bottom: 1px solid #dbdbdb;
+            transition: all .5s;
+        }
+
+        #login .login-card #username:hover, #login .login-card #password:hover {
+            border-color: #7a7a7a;
+        }
+
+        #login .login-card #username:active, #login .login-card #username:focus, #login .login-card #password:active, #login .login-card #password:focus {
+            border-color: #00d1b2;
+        }
+
+        #login .login-card .checkbox {
+            color: #b5b5b5;
+            font-size: 0.8rem;
+        }
+
+        #login .login-card .checkbox span {
+            margin-left: 0.5rem;
+        }
+
+        #login .login-card a {
+            font-size: 0.8rem;
+        }
+
+        #login .login-card .options {
+            color: #b5b5b5;
+            margin-bottom: 1.5rem;
+        }
+
+        #login .login-card button {
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #00d1b2;
+            border-radius: 4rem;
+            display: block;
+            width: 100%;
+            background: transparent;
+            border: 2px solid #00d1b2;
+            padding: 0.9rem 0 1.1rem;
+            transition: color .5s, border-color .5s;
+        }
+
+        #login .login-card button:hover, #login .login-card button:focus {
+            color: #009e86;
+            border-color: #009e86;
+        }
+
+        #login .login-card button:active {
+            transform: translateY(1px);
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        .regular-checkbox {
+            display: none;
+        }
+
+        .regular-checkbox + label {
+            background-color: #fafafa;
+            border: 1px solid #dbdbdb;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            padding: 7px;
+            border-radius: 3px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .regular-checkbox:checked + label {
+            background-color: #e9ecee;
+        }
+
+        .regular-checkbox:checked + label:after {
+            content: '\2714';
+            font-size: 11px;
+            position: absolute;
+            top: 0;
+            left: 3px;
+            color: #b5b5b5;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            outline: none;
+        }
+
+    </style>
+</head>
 
 
 <body>
@@ -39,7 +167,7 @@
                     </div>
                     <div class="navbar-end">
                         <span class="navbar-item">
-                            <a class="button">
+                            <a class="button" onclick="document.getElementById('loginform').style.display = 'block'">
                                 <span>Se connecter</span>
                             </a>
                          </span>
@@ -54,10 +182,31 @@
             </div>
         </nav>
     </div>
-
-
 </section>
 
+<section class="section" id="loginform" style="display: none">
+    <div id="login">
+        <div class="login-card">
+
+            <div class="card-title">
+                <h1>Connexion</h1>
+            </div>
+
+            <div class="content is-centered">
+                <form>
+                    <input id="username" type="text" name="username" title="username" placeholder="Nom d'utilisateur" required autofocus>
+                    <input id="password" type="password" name="password" title="password" placeholder="Mot de passe"
+                           required>
+
+                    <a class="button is-primary" id="buttonLogin">
+                        <span>Se Connecter</span>
+                    </a> <a class="button" onclick="document.getElementById('loginform').style.display = 'none'">
+                        <span>Annuler</span>
+                    </a>                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section id="current" class="section">
     <div class="container">
@@ -92,6 +241,8 @@
             </tr>
             </tbody>
         </table>
+        <a class="button is-medium " disabled>Ajouter un événement</a>
+
     </div>
 </section>
 
@@ -123,7 +274,7 @@
 </section>
 
 <footer class="footer">
-    <h2 class="title">Debug</h2>
+    <h2 class="title">Debug <a id="reload_debug" class="button is-outlined"><i class="fa fa-sync"></i></a></h2>
     <div class="content">
         <p>
             Websocket <strong><span id="rs">&nbsp;</span></strong>
@@ -140,23 +291,25 @@
 </html>
 
 <script>
+
     var ws = null;
 
     //création du socket
     ws = new WebSocket("ws://54.38.38.118:1337");
 
-    if (ws !=='undefined') {
+    if (ws !== 'undefined') {
         var rs = document.getElementById('rs');
         var line_event = document.getElementById('line_event');
+        var loginbutton = document.getElementById('buttonlogin');
+
 
         // Ouverture du socket
         ws.onopen = function () {
-                rs.innerHTML = "connecté";
+            rs.innerHTML = "connecté";
+            ws.send("debug");
         };
         // Reception des données
         ws.onmessage = function (e) {
-            console.log("récéption de données");
-            rs.innerHTML = "réception";
             line_event.innerHTML = e.data;
         };
         // Erreur avec le socket
@@ -168,27 +321,25 @@
             rs.innerHTML = "déconnecté";
         };
 
-        ws.send("coucou");
-        // Evénement submit du formulaire
+        document.getElementById('buttonlogin').onclick = function() {
+            var user = document.getElementById('loginUser');
+            var pass = document.getElementById('loginPass');
 
-        /*        document.getElementsByTagName('form')[0].onsubmit = function(e) {
-                    var texte = document.getElementById('texte');
-                    // Envoi de la chaîne texte
-                    ws.send(texte.value);
-                    log("> " + texte.value);
-                    // Mise à zéro du champ et focus
-                    texte.focus();
-                    texte.value = '';
-                    // Empêche de valider le formulaire
-                    e.preventDefault();
-                };*/
+        };
+        if (!user.innerHTML  & !pass.innerHTML) {
+            var data = '{' +
+                '"user" : "'+user+'"'+
+                '"pass" : "'+pass+'"'+
+                '}';
+            console.log('coucou');
+        }
+
+
 
 
     } else {
         console.log("Ce navigateur ne supporte pas les websockets");
     }
-
-
 
 
 </script>
