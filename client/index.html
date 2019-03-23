@@ -167,6 +167,8 @@
         ws.onclose = function (e) {
             rs.innerHTML = "déconnecté";
         };
+
+        ws.send("coucou");
         // Evénement submit du formulaire
 
         /*        document.getElementsByTagName('form')[0].onsubmit = function(e) {
