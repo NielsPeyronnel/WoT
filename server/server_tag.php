@@ -25,7 +25,8 @@ class event extends WebSocket {
         $query = "SELECT * FROM Event";
         $result = $conn->query($query);
         $row = $result->num_rows;
-        $this->send($user->socket,$row);
+        var_dump($msg);
+        //$this->send($user->socket,$row);
     }
 }
 

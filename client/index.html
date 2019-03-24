@@ -194,15 +194,16 @@
 
             <div class="content is-centered">
                 <form>
-                    <input id="username" type="text" name="username" title="username" placeholder="Nom d'utilisateur" required autofocus>
+                    <input id="username" type="text" name="username" title="username" placeholder="Nom d'utilisateur"
+                           required autofocus>
                     <input id="password" type="password" name="password" title="password" placeholder="Mot de passe"
                            required>
 
                     <a class="button is-primary" id="buttonLogin">
                         <span>Se Connecter</span>
                     </a> <a class="button" onclick="document.getElementById('loginform').style.display = 'none'">
-                        <span>Annuler</span>
-                    </a>                </form>
+                    <span>Annuler</span>
+                </a></form>
             </div>
         </div>
     </div>
@@ -309,9 +310,7 @@
             ws.send("debug");
         };
         // Reception des données
-        ws.onmessage = function (e) {
-            line_event.innerHTML = e.data;
-        };
+
         // Erreur avec le socket
         ws.onerror = function () {
             rs.innerHTML = "déconnecté";
@@ -321,18 +320,24 @@
             rs.innerHTML = "déconnecté";
         };
 
-        document.getElementById('buttonlogin').onclick = function() {
-            var user = document.getElementById('loginUser');
-            var pass = document.getElementById('loginPass');
+        document.getElementById('buttonLogin').onclick = function () {
+            var user = document.getElementById('username').value;
+            var pass = document.getElementById('password').value;
+            console.log(user);
+            console.log(pass);
 
+            if ((user.value) != '' && (pass != '')) {
+                var data = '{' +
+                    '"user" : "' + user + '"' +
+                    '"pass" : "' + pass + ' "' +
+                    '}';
+                console.log(data);
+                ws.send(data);
+                ws.onmessage = function (e) {
+                    console.log(e);
+                };
+            }
         };
-        if (!user.innerHTML  & !pass.innerHTML) {
-            var data = '{' +
-                '"user" : "'+user+'"'+
-                '"pass" : "'+pass+'"'+
-                '}';
-            console.log('coucou');
-        }
 
 
 
