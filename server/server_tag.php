@@ -37,7 +37,11 @@ class event extends WebSocket {
     function process($user, $obj){
         $msg = json_decode($obj,TRUE);
         echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $obj ."\n\n";
+        print_r($obj);
+
         echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $msg ."\n\n";
+        print_r($msg);
+
         switch($msg->type){
             case 'debug':
                 $query_event = "SELECT * FROM Event";
