@@ -11,7 +11,7 @@ require './phpwebsocket/websocket.class.php';
 
 class event extends WebSocket {
 
-    var $servername
+    var $servername;
     var $username;
     var $password;
     var $database;
