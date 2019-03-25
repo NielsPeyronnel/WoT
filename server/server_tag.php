@@ -48,10 +48,10 @@ class event extends WebSocket {
                 $result = $this->conn->query($query_event);
                 $row = $result->num_rows;
                 $debug_array = array('type' => 'debug', 'Event' => $row);
-                $this->send($user, json_encode($debug_array));
+                $this->send($user->socket, json_encode($debug_array));
                 break;
             default:
-                $this->send($user,"coucou");
+                $this->send($user->socket,"coucou");
         }
 
 
