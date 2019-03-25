@@ -307,9 +307,15 @@
         // Ouverture du socket
         ws.onopen = function () {
             rs.innerHTML = "connecté";
-            ws.send("debug");
+            var debugDB = {
+                type: 'debug'
+            };
+            ws.send(debugDB);
         };
         // Reception des données
+        ws.onmessage = function (e) {
+            console.log(e);
+        };
 
         // Erreur avec le socket
         ws.onerror = function () {

@@ -36,13 +36,19 @@ class event extends WebSocket {
 
     }
 
-    function process($user, $msg){
+    function process($user, $obj){
+        $msg = json_decode($obj);
+        switch($msg->type){
+            case 'debug':
+                $query_event = "SELECT * FROM Event";
+                $result = $this->conn->query($query_event);
+                $row = $result->num_rows;
+                $debug_array = array('type' => 'debug', 'Event' => $row);
+                $this->send($user,$debug_array);
+                break;
+        }
 
-        $query_debug =null;
-        $query_debug = "SELECT * FROM Event";
-        $result = $this->conn->query($query_debug);
-        $row = $result->num_rows;
-        var_dump($msg);
+
         //$this->send($user->socket,$row);
     }
 }
