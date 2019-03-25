@@ -283,7 +283,9 @@
         <p>
             La table Event possède <strong><span id="line_event">&nbsp;</span></strong> lignes
         </p>
-
+        <p>
+            La table User possède <strong><span id="line_user">&nbsp;</span></strong> lignes
+        </p>
     </div>
 </footer>
 
@@ -301,6 +303,7 @@
     if (ws !== 'undefined') {
         var rs = document.getElementById('rs');
         var line_event = document.getElementById('line_event');
+        var line_user = document.getElementById('line_user');
         var loginbutton = document.getElementById('buttonlogin');
 
 
@@ -314,7 +317,12 @@
         };
         // Reception des données
         ws.onmessage = function (e) {
-            console.log(e.data);
+            var message = JSON.parse(e.data);
+            if (message.type == 'debug'){
+                line_event.innerText = message.Event;
+            } else {
+                console.log('pas coucou');
+            }
         };
 
         // Erreur avec le socket
