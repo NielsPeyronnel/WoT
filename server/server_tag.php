@@ -20,8 +20,6 @@ class event extends WebSocket {
     function __construct($address,$port)
     {
         echo "coucou";
-        parent::__construct($address,$port);
-        echo "coucou";
 
         $this->servername = "localhost";
         $this->username = "niels";
@@ -33,6 +31,9 @@ class event extends WebSocket {
         }
 
         echo "[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
+
+        parent::__construct($address,$port);
+
     }
 
     function process($user, $msg){
