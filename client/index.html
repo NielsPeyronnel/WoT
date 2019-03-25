@@ -311,11 +311,11 @@
                 type: 'debug'
             };
             console.log(debugDB);
-            ws.send(debugDB);
+            ws.send(JSON.stringify(debugDB));
         };
         // Reception des données
         ws.onmessage = function (e) {
-            console.log(e);
+            console.log(e.data);
         };
 
         // Erreur avec le socket
