@@ -20,6 +20,7 @@ class event extends WebSocket {
     function __construct($address,$port)
     {
         parent::__construct($address,$port);
+        echo "coucou";
 
         $this->servername = "localhost";
         $this->username = "niels";
