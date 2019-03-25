@@ -43,14 +43,14 @@ class event extends WebSocket {
         print_r($msg);
 
         switch($msg['type']){
-            case 'debug':
+            case 'onload':
                 $query_event = "SELECT * FROM Event";
                 $query_user = "SELECT * FROM User";
                 $result = $this->conn->query($query_event);
                 $row = $result->num_rows;
                 $result2 = $this->conn->query($query_user);
                 $row2 = $result2->num_rows;
-                $debug_array = array('type' => 'debug', 'Event' => $row, 'User' => $row2);
+                $debug_array = array('type' => 'onload', 'Event_line' => $row, 'User_line' => $row2, 'Event_table' => $result);
                 $this->send($user->socket, json_encode($debug_array));
                 break;
             default:

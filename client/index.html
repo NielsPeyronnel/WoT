@@ -305,21 +305,23 @@
         var line_event = document.getElementById('line_event');
         var line_user = document.getElementById('line_user');
         var loginbutton = document.getElementById('buttonlogin');
-
+        var table_event_current;
 
         // Ouverture du socket
         ws.onopen = function () {
             rs.innerHTML = "connecté";
             var debugDB = {
-                type: 'debug'
+                type: 'onload'
             };
             ws.send(JSON.stringify(debugDB));
         };
         // Reception des données
         ws.onmessage = function (e) {
             var message = JSON.parse(e.data);
-            if (message.type == 'debug'){
+            if (message.type == 'onload'){
                 line_event.innerText = message.Event;
+                line_user.innerText = message.User;
+                table_event_current = message.
             } else {
                 console.log('pas coucou');
             }
@@ -346,7 +348,6 @@
                     '"pass" : "' + pass + '"' +
                     '}';
                 console.log(data);
-
                 data = JSON.parse(data);
                 console.log(data);
                 ws.send(data);
