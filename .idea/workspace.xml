@@ -67,7 +67,7 @@
         <counts>
           <entry key="css" value="37" />
           <entry key="html" value="4857" />
-          <entry key="php" value="1955" />
+          <entry key="php" value="1969" />
           <entry key="sql" value="61" />
           <entry key="txt" value="42" />
         </counts>
@@ -76,7 +76,7 @@
         <counts>
           <entry key="CSS" value="37" />
           <entry key="HTML" value="4857" />
-          <entry key="PHP" value="1955" />
+          <entry key="PHP" value="1969" />
           <entry key="PLAIN_TEXT" value="42" />
           <entry key="Scratch" value="61" />
         </counts>
@@ -128,8 +128,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server_tag.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+            <state relative-caret-position="366">
+              <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -285,12 +285,12 @@
       <workItem from="1553105413852" duration="4062000" />
       <workItem from="1553246507257" duration="48000" />
       <workItem from="1553246559540" duration="24648000" />
-      <workItem from="1553518063098" duration="2445000" />
+      <workItem from="1553518063098" duration="2540000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39693000" />
+    <option name="totallyTimeSpent" value="39788000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="982" extended-state="6" />
@@ -406,8 +406,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server_tag.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+        <state relative-caret-position="366">
+          <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
         </state>
       </provider>
     </entry>
