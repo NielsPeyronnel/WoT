@@ -19,18 +19,16 @@ class event extends WebSocket {
 
     function __construct($address,$port)
     {
-        echo "coucou";
-
         $this->servername = "localhost";
         $this->username = "niels";
         $this->password = "niteversion";
         $this->database ="phpmyadmin";
         $this->conn = new mysqli($this->servername, $this->username, $this->password,$this->database);
         if ($this->conn->connect_error) {
-            die("[".date("H:i:s")."] --{MYSQL}-- Connection echec (" . $this->conn->connect_error.")\n\n");
+            die("\n\n[".date("H:i:s")."] --{MYSQL}-- Connection echec (" . $this->conn->connect_error.")\n\n");
         }
 
-        echo "[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
+        echo "\n\n[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
 
         parent::__construct($address,$port);
 
@@ -38,6 +36,7 @@ class event extends WebSocket {
 
     function process($user, $obj){
         $msg = json_decode($obj);
+        echo $msg;
         switch($msg->type){
             case 'debug':
                 $query_event = "SELECT * FROM Event";
