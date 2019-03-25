@@ -318,10 +318,11 @@
         // Reception des données
         ws.onmessage = function (e) {
             var message = JSON.parse(e.data);
+            console.log(message);
             if (message.type == 'onload'){
                 line_event.innerText = message.Event;
                 line_user.innerText = message.User;
-                table_event_current = message.
+                table_event_current = message.Event_table;
             } else {
                 console.log('pas coucou');
             }
