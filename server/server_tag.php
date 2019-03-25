@@ -8,22 +8,36 @@
 
 require './phpwebsocket/websocket.class.php';
 
+
 class event extends WebSocket {
 
-    function process($user, $msg){
-        $servername = "localhost";
-        $username = "niels";
-        $password = "niteversion";
-        $databse ="phpmyadmin";
-        $conn = new mysqli($servername, $username, $password,$databse);
-        if ($conn->connect_error) {
-            die("[".date("H:i:s")."] --{MYSQL}-- Connection echec (" . $conn->connect_error.")\n\n");
+    var $servername
+    var $username;
+    var $password;
+    var $database;
+    var $conn;
+
+    function __construct($address,$port)
+    {
+        parent::__construct($address,$port);
+
+        $this->servername = "localhost";
+        $this->username = "niels";
+        $this->password = "niteversion";
+        $this->database ="phpmyadmin";
+        $this->conn = new mysqli($this->servername, $this->username, $this->password,$this->database);
+        if ($this->conn->connect_error) {
+            die("[".date("H:i:s")."] --{MYSQL}-- Connection echec (" . $this->conn->connect_error.")\n\n");
         }
 
         echo "[".date("H:i:s")."] --{MYSQL}-- Connection établie\n\n";
-        $query =null;
-        $query = "SELECT * FROM Event";
-        $result = $conn->query($query);
+    }
+
+    function process($user, $msg){
+
+        $query_debug =null;
+        $query_debug = "SELECT * FROM Event";
+        $result = $this->conn->query($query_debug);
         $row = $result->num_rows;
         var_dump($msg);
         //$this->send($user->socket,$row);

@@ -326,11 +326,14 @@
             console.log(user);
             console.log(pass);
 
-            if ((user.value) != '' && (pass != '')) {
+            if ((user.value) != '' && (pass.value != '')) {
                 var data = '{' +
-                    '"user" : "' + user + '"' +
-                    '"pass" : "' + pass + ' "' +
+                    '"user" : "' + user + '",' +
+                    '"pass" : "' + pass + '"' +
                     '}';
+                console.log(data);
+
+                data = JSON.parse(data);
                 console.log(data);
                 ws.send(data);
                 ws.onmessage = function (e) {

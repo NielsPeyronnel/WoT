@@ -15,6 +15,7 @@ require './phpwebsocket/websocket.class.php';
 
 // extension de la classe websocket
 class ChatBot extends WebSocket {
+
     function process($user, $msg){
         $this->say("<  ".$msg);
         switch ($msg){
