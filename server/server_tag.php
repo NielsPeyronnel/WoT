@@ -19,6 +19,7 @@ class event extends WebSocket {
 
     function __construct($address,$port)
     {
+        echo "coucou";
         parent::__construct($address,$port);
         echo "coucou";
 
