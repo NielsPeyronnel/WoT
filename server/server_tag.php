@@ -42,7 +42,7 @@ class event extends WebSocket {
         echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $msg ."\n\n";
         print_r($msg);
 
-        switch($msg->type){
+        switch($msg['type']){
             case 'debug':
                 $query_event = "SELECT * FROM Event";
                 $result = $this->conn->query($query_event);
@@ -50,6 +50,8 @@ class event extends WebSocket {
                 $debug_array = array('type' => 'debug', 'Event' => $row);
                 $this->send($user, json_encode($debug_array));
                 break;
+            default:
+                $this->send($user,"coucou");
         }
 
 

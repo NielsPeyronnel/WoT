@@ -72,7 +72,7 @@
           <entry key="css" value="37" />
           <entry key="html" value="4884" />
           <entry key="json" value="7" />
-          <entry key="php" value="2013" />
+          <entry key="php" value="2056" />
           <entry key="sql" value="61" />
           <entry key="txt" value="42" />
         </counts>
@@ -82,7 +82,7 @@
           <entry key="CSS" value="37" />
           <entry key="HTML" value="4884" />
           <entry key="JSON" value="7" />
-          <entry key="PHP" value="2013" />
+          <entry key="PHP" value="2056" />
           <entry key="PLAIN_TEXT" value="42" />
           <entry key="Scratch" value="61" />
         </counts>
@@ -118,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="316" column="30" selection-start-line="316" selection-start-column="30" selection-end-line="316" selection-end-column="30" />
+            <state relative-caret-position="315">
+              <caret line="321" column="40" lean-forward="true" selection-start-line="321" selection-start-column="40" selection-end-line="321" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -131,8 +131,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server_tag.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="50" column="61" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
+            <state relative-caret-position="463">
+              <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -298,12 +298,12 @@
       <workItem from="1553105413852" duration="4062000" />
       <workItem from="1553246507257" duration="48000" />
       <workItem from="1553246559540" duration="24648000" />
-      <workItem from="1553518063098" duration="3733000" />
+      <workItem from="1553518063098" duration="3869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40981000" />
+    <option name="totallyTimeSpent" value="41117000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="982" extended-state="6" />
@@ -422,8 +422,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="316" column="30" selection-start-line="316" selection-start-column="30" selection-end-line="316" selection-end-column="30" />
+        <state relative-caret-position="315">
+          <caret line="321" column="40" lean-forward="true" selection-start-line="321" selection-start-column="40" selection-end-line="321" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -433,8 +433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server_tag.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="50" column="61" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
+        <state relative-caret-position="463">
+          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
         </state>
       </provider>
     </entry>
