@@ -47,13 +47,23 @@ class event extends WebSocket {
                 $query_event = "SELECT * FROM Event";
                 $query_user = "SELECT * FROM User";
                 $result = $this->conn->query($query_event);
-                $row = $result->num_rows;
+                $row_event = $result->num_rows;
                 $event_table = $result->fetch_row();
                 $result2 = $this->conn->query($query_user);
-                $row2 = $result2->num_rows;
-                $debug_array = array('type' => 'onload', 'Event_line' => $row, 'User_line' => $row2, 'Event_table' => $event_table);
+                $row_user = $result2->num_rows;
+                $debug_array = array('type' => 'onload', 'Event_line' => $row_event, 'User_line' => $row2, 'Event_table' => $event_table);
                 $this->send($user->socket, json_encode($debug_array));
                 break;
+            case 'login':
+                $query_login = 'SELECT * FROM User WHERE User.name="'.$msg[user].'" AND User.password="'.$msg[password].'"';
+                $result = $this->conn->query($query_login);
+                if ($result->num_rows){
+                    $login_answer = array('type' => 'login', 'login' => 'OK');
+                    $this->send($user->soxket,json_encode($login_answer));
+                } else {
+                    $login_answer = array('type' => 'login', 'login' => 'NOK');
+                    $this->send($user->soxket,json_encode($login_answer));
+                }
             default:
                 $this->send($user->socket,"coucou");
         }

@@ -320,11 +320,16 @@
             var message = JSON.parse(e.data);
             console.log(message);
             if (message.type == 'onload'){
-                line_event.innerText = message.Event;
-                line_user.innerText = message.User;
+                line_event.innerText = message.Event_line;
+                line_user.innerText = message.User_line;
                 table_event_current = message.Event_table;
-            } else {
-                console.log('pas coucou');
+            }
+            if (message.type == 'login'){
+                if (message.login == 'OK'){
+                    console.log("You are logged in");
+                } else {
+                    console.log("You are NOT logged in");
+                }
             }
         };
 
@@ -344,12 +349,13 @@
             console.log(pass);
 
             if ((user.value) != '' && (pass.value != '')) {
-                var data = '{' +
-                    '"user" : "' + user + '",' +
-                    '"pass" : "' + pass + '"' +
-                    '}';
-                console.log(data);
-                data = JSON.parse(data);
+                var data = {
+                    "type" : 'login',
+                    "user" : user.value,
+                    "pass" : pass.value
+                    };
+                console.log(data;
+                data = JSON.stringify(data);
                 console.log(data);
                 ws.send(data);
                 ws.onmessage = function (e) {
