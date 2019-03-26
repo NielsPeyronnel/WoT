@@ -55,7 +55,7 @@ class event extends WebSocket {
                 $this->send($user->socket, json_encode($debug_array));
                 break;
             case 'login':
-                $query_login = 'SELECT * FROM User WHERE User.name="'.$msg[user].'" AND User.password="'.$msg[password].'"';
+                $query_login = 'SELECT * FROM User WHERE User.name="'.$msg[user].'" AND User.password="'.$msg[pass].'"';
                 $result = $this->conn->query($query_login);
                 if ($result->num_rows){
                     $login_answer = array('type' => 'login', 'login' => 'OK');

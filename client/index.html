@@ -354,13 +354,8 @@
                     "user" : user,
                     "pass" : pass
                     };
-                console.log(data);
                 data = JSON.stringify(data);
-                console.log(data);
                 ws.send(data);
-                ws.onmessage = function (e) {
-                    console.log(e);
-                };
             }
         };
 
