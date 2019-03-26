@@ -59,10 +59,10 @@ class event extends WebSocket {
                 $result = $this->conn->query($query_login);
                 if ($result->num_rows){
                     $login_answer = array('type' => 'login', 'login' => 'OK');
-                    $this->send($user->soxket,json_encode($login_answer));
+                    $this->send($user->socket,json_encode($login_answer));
                 } else {
                     $login_answer = array('type' => 'login', 'login' => 'NOK');
-                    $this->send($user->soxket,json_encode($login_answer));
+                    $this->send($user->socket,json_encode($login_answer));
                 }
             default:
                 $this->send($user->socket,"coucou");
