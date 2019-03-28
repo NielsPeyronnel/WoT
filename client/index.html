@@ -229,6 +229,7 @@
                 <th>Localisation</th>
                 <th>Météo</th>
                 <th>Inscription</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -257,6 +258,7 @@
                 <th>Localisation</th>
                 <th>Météo</th>
                 <th>Inscription</th>
+                <th hidden>Createur</th>
             </tr>
             </thead>
         </table>
@@ -334,6 +336,7 @@
                     document.getElementById('loginform').style.display = "none";
                     document.getElementById('button_login').style.display = "none";
                     document.getElementById('addEvent').removeAttribute('disabled');
+                    document.getElementById()
                 } else {
                     document.getElementById('nolog').style.display = "block";
                     console.log("You are NOT logged in");
@@ -353,7 +356,10 @@
                     var localisation = row.insertCell(4);
                     var meteo = row.insertCell(5);
                     var inscription = row.insertCell(6);
+                    var creator = row.insertCell(7);
 
+                    creator.id = element.creator;
+                    creator.getAttribute('hidden');
                     time.innerText = element.time;
                     name.innerText = element.name;
                     nb_personne.innerText = element.nb_personne;

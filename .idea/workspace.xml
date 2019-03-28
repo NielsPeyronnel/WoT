@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2040cf2a-6eab-4a6d-b036-b95cda800856" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server_tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/server_tag.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -69,9 +70,9 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="37" />
-          <entry key="html" value="7504" />
+          <entry key="html" value="7695" />
           <entry key="json" value="7" />
-          <entry key="php" value="3260" />
+          <entry key="php" value="3297" />
           <entry key="sql" value="398" />
           <entry key="txt" value="42" />
         </counts>
@@ -79,9 +80,9 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="37" />
-          <entry key="HTML" value="7504" />
+          <entry key="HTML" value="7695" />
           <entry key="JSON" value="7" />
-          <entry key="PHP" value="3260" />
+          <entry key="PHP" value="3297" />
           <entry key="PLAIN_TEXT" value="42" />
           <entry key="Scratch" value="398" />
         </counts>
@@ -101,8 +102,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server/server_tag.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="331">
-                  <caret line="47" column="47" lean-forward="true" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+                <state relative-caret-position="281">
+                  <caret line="64" column="39" lean-forward="true" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -123,8 +124,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="297">
-                  <caret line="233" column="19" selection-start-line="233" selection-start-column="19" selection-end-line="233" selection-end-column="19" />
+                <state relative-caret-position="301">
+                  <caret line="338" column="44" selection-start-line="338" selection-start-column="44" selection-end-line="338" selection-end-column="44" />
                   <folding>
                     <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
                     <element signature="e#459#627#0" />
@@ -169,8 +170,8 @@
         <option value="$PROJECT_DIR$/server/test.bot.php" />
         <option value="$PROJECT_DIR$/server/composer.json" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d1f8c048-b708-4675-bba3-2e8d99639075/console.sql" />
-        <option value="$PROJECT_DIR$/server/server_tag.php" />
         <option value="$PROJECT_DIR$/client/index.html" />
+        <option value="$PROJECT_DIR$/server/server_tag.php" />
       </list>
     </option>
   </component>
@@ -238,7 +239,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553814450479" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553815288894" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -273,12 +274,12 @@
       <workItem from="1553246559540" duration="24648000" />
       <workItem from="1553518063098" duration="6278000" />
       <workItem from="1553547510876" duration="13175000" />
-      <workItem from="1553811846884" duration="2583000" />
+      <workItem from="1553811846884" duration="3419000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59284000" />
+    <option name="totallyTimeSpent" value="60120000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1057" extended-state="6" />
@@ -395,17 +396,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server_tag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="47" column="47" lean-forward="true" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="233" column="19" selection-start-line="233" selection-start-column="19" selection-end-line="233" selection-end-column="19" />
+        <state relative-caret-position="301">
+          <caret line="338" column="44" selection-start-line="338" selection-start-column="44" selection-end-line="338" selection-end-column="44" />
           <folding>
             <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
             <element signature="e#459#627#0" />
@@ -414,6 +408,13 @@
             <element signature="n#style#0;n#h3#0;n#form#0;n#div#1;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#6751#6757#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server_tag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="64" column="39" lean-forward="true" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
         </state>
       </provider>
     </entry>
