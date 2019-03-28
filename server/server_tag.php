@@ -37,10 +37,8 @@ class event extends WebSocket {
     function process($user, $obj){
         $msg = json_decode($obj,TRUE);
         echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $obj ."\n\n";
-        print_r($obj);
 
         echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $msg ."\n\n";
-        print_r($msg);
 
         switch($msg['type']){
             case 'onloadDebug':
@@ -55,6 +53,7 @@ class event extends WebSocket {
                 break;
             case 'onloadEvent':
                 $query_event = 'SELECT * FROM Event WHERE DATE(time) = "'.date("Y-M-D").'"';
+                echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $query_event ."\n\n";
                 $result = $this->conn->query($query_event);
                 $table = $result->fetch_all(MYSQLI_ASSOC);
                 $array = array('type' => 'onload_event', 'table' => $table);
