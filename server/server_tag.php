@@ -70,6 +70,11 @@ class event extends WebSocket {
                     $this->send($user->socket,json_encode($login_answer));
                 }
                 break;
+            case 'required':
+                $query_required = 'SELECT COUNT (*) FROM Signup Where eventid ="'.$msg[id].'"';
+                $result = $this->conn->query($query_required);
+
+                break;
             default:
                 $default = array('type' => 'default');
                 $this->send($user->socket,$default);

@@ -223,7 +223,6 @@
         <table id="currentEvent" class="table is-hoverable is-fullwidth is-striped ">
             <thead>
             <tr>
-                <th><abbr title="N°">N°</abbr></th>
                 <th>Date</th>
                 <th>Nom</th>
                 <th>Personnes requises</th>
@@ -235,7 +234,6 @@
             </thead>
             <tbody>
             <tr>
-                <th>1</th>
                 <td>23/05/2019 15h00</td>
                 <td>On se bouge à Pech David</td>
                 <td>25</td>
@@ -347,10 +345,42 @@
                     document.getElementById('nolog').style.display = "block";
                     console.log("You are NOT logged in");
                 }
-                if (message.type == 'onload_event'){
-                    var table = document.getElementById('currentEvent');
-                    console.log(message);
-                }
+            }
+            if (message.type == 'onload_event'){
+                var table = document.getElementById('currentEvent');
+                message.table.forEach(function(element) {
+                    var row = table.insertRow(1);
+                    row.id = element.id;
+
+                    var time = row.insertCell(0);
+                    var name = row.insertCell(1);
+                    var nb_personne = row.insertCell(2);
+                    var requis = row.insertCell(3);
+                    var localisation = row.insertCell(4);
+                    var meteo = row.insertCell(5);
+                    var inscription = row.insertCell(6);
+
+                    time.innerText = element.time;
+                    name.innerText = element.name;
+                    nb_personne.innerText = element.nb_personne;
+
+                    // nombre de personne
+
+                    var required  = {
+                        type : 'required',
+                        id : element.id,
+                        num : ''
+                    };
+
+                    ws.send(JSON.stringify(required));
+
+                    requis.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
+                    localisation.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
+                    meteo.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
+                    inscription.innerHTML ='<a class="button is-primary is-outlined">S\'inscrire</a>';
+
+                    console.log(element);
+                });
             }
         };
 
