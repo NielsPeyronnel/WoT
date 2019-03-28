@@ -331,7 +331,7 @@
         };
         // Reception des données
         ws.onmessage = function (e) {
-            var message = e;
+            var message = JSON.parse(e.data);
             console.log(message);
             if (message.type == 'onload_debug'){
                 line_event.innerText = message.Event_line;

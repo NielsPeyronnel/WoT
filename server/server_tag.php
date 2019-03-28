@@ -57,7 +57,7 @@ class event extends WebSocket {
                 $query_event = "SELECT * FROM Event";
                 $result = $this->conn->query($query_event);
                 $table = $result->fetch_row();
-                $array = array('type' => 'onload_event', 'data' => $table);
+                $array = array('type' => 'onload_event', 'data' => 'test');
                 $this->send($user->socket,json_encode($array));
                 break;
             case 'login':
