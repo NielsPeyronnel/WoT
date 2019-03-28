@@ -73,7 +73,7 @@ class event extends WebSocket {
                 break;
             default:
                 $default = array('type' => 'default');
-                $this->send($user->socket,);
+                $this->send($user->socket,$default);
         }
 
 
