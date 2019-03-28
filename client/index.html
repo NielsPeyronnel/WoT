@@ -216,7 +216,7 @@
     <div class="container">
         <h1 class="title">Evénements en cours</h1>
         <h2 class="subtitle">
-            Il y a actuellement # événements en cours
+            Il y a actuellement <span id="nb_current">&nbsp;</span> événements en cours
         </h2>
 
         <table id="currentEvent" class="table is-hoverable is-fullwidth is-striped ">
@@ -232,15 +232,6 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>23/05/2019 15h00</td>
-                <td>On se bouge à Pech David</td>
-                <td>25</td>
-                <td>12</td>
-                <td><a>Pech David</a></td>
-                <td><span class="icon"><i class="fas fa-sun"</span></td>
-                <td><a class="button is-primary is-outlined">S'inscrire</a></td>
-            </tr>
             </tbody>
         </table>
         <a id="addEvent" class="button is-medium " disabled>Ajouter un événement</a>
@@ -324,7 +315,9 @@
             var onloadEvent = {
                 type: 'onloadEvent'
             };
-            ws.send(JSON.stringify(onloadEvent));
+            setTimeout(function(){
+                ws.send(JSON.stringify(onloadEvent));
+            }, 500);
 
         };
         // Reception des données
@@ -348,6 +341,7 @@
             }
             if (message.type == 'onload_event'){
                 var table = document.getElementById('currentEvent');
+                document.getElementById('nb_current').innerText = message.table.length;
                 message.table.forEach(function(element) {
                     var row = table.insertRow(1);
                     row.id = element.id;
