@@ -82,7 +82,7 @@ class event extends WebSocket {
                 $default = array('type' => 'default');
                 $this->send($user->socket,$default);
         }
-
+        $msg = NULL;
 
         //$this->send($user->socket,$row);
     }
