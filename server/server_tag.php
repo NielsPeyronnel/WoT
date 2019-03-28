@@ -71,7 +71,7 @@ class event extends WebSocket {
                 break;
             case 'required':
                 var_dump("coucou");
-                $query_required = 'SELECT COUNT (*) FROM Signup Where eventid ="'.$msg['id'].'"';
+                $query_required = 'SELECT COUNT(*) FROM Signup Where eventid ="'.$msg['id'].'"';
                 echo "\n\n[".date("H:i:s")."] --{DEBUG REQUETE}-- ". $query_required ."\n\n";
                 $result = $this->conn->query($query_required);
                 $number = $result->fetch_row();
