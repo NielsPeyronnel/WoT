@@ -220,7 +220,7 @@
             Il y a actuellement # événements en cours
         </h2>
 
-        <table class="table is-hoverable is-fullwidth is-striped ">
+        <table id="currentEvent" class="table is-hoverable is-fullwidth is-striped ">
             <thead>
             <tr>
                 <th><abbr title="N°">N°</abbr></th>
@@ -348,6 +348,7 @@
                     console.log("You are NOT logged in");
                 }
                 if (message.type == 'onload_event'){
+                    var table = document.getElementById('currentEvent');
                     console.log(message);
                 }
             }
