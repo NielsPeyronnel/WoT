@@ -53,7 +53,6 @@ class event extends WebSocket {
                 break;
             case 'onloadEvent':
                 $query_event = 'SELECT * FROM Event WHERE DATE(time) = "'.date("Y-m-d").'"';
-                echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $query_event ."\n\n";
                 $result = $this->conn->query($query_event);
                 $table = $result->fetch_all(MYSQLI_ASSOC);
                 $array = array('type' => 'onload_event', 'table' => $table);
@@ -74,7 +73,7 @@ class event extends WebSocket {
                 $query_required = 'SELECT COUNT (*) FROM Signup Where eventid ="'.$msg['id'].'"';
                 $result = $this->conn->query($query_required);
                 $number = $result->fetch_row();
-                echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $number ."\n\n";
+                echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $query_required ."\n\n";
                 $array = array ('type' => 'required', 'id' => $msg['id'], 'num' => $number );
                 $this->send($user->socket,json_encode($array));
                 break;
