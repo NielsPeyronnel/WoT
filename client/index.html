@@ -167,7 +167,8 @@
                     </div>
                     <div class="navbar-end">
                         <span class="navbar-item">
-                            <a class="button" onclick="document.getElementById('loginform').style.display = 'block'">
+                            <a class="button" id="button_login" onclick="document.getElementById('loginform').style.display = 'block'">
+                                <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
                                 <span>Se connecter</span>
                             </a>
                          </span>
@@ -203,7 +204,10 @@
                         <span>Se Connecter</span>
                     </a> <a class="button" onclick="document.getElementById('loginform').style.display = 'none'">
                     <span>Annuler</span>
-                </a></form>
+
+                </a>
+                    <h3 class="subtitle" id="nolog" style="color: #d82e14; text-align: center; display: none"><bold>Login Incorrect</bold></h3>
+                </form>
             </div>
         </div>
     </div>
@@ -242,7 +246,7 @@
             </tr>
             </tbody>
         </table>
-        <a class="button is-medium " disabled>Ajouter un événement</a>
+        <a id="addEvent" class="button is-medium " disabled>Ajouter un événement</a>
 
     </div>
 </section>
@@ -294,11 +298,16 @@
 </html>
 
 <script>
-
     var ws = null;
 
-    //création du socket
-    ws = new WebSocket("ws://54.38.38.118:1337");
+    try {
+        ws = new WebSocket("ws://54.38.38.118:1337");
+    }
+    catch (e) {
+        var rs = document.getElementById('rs');
+        rs.innerHTML = e;
+
+    }
 
     if (ws !== 'undefined') {
         var rs = document.getElementById('rs');
@@ -307,28 +316,40 @@
         var loginbutton = document.getElementById('buttonlogin');
         var table_event_current;
 
+
         // Ouverture du socket
         ws.onopen = function () {
             rs.innerHTML = "connecté";
             var debugDB = {
-                type: 'onload'
+                type: 'onload_debug'
             };
             ws.send(JSON.stringify(debugDB));
+            var onloadEvent = {
+                type: 'onload_event'
+            }
+            ws.send(JSON.stringify(onloadEvent));
         };
         // Reception des données
         ws.onmessage = function (e) {
+            console.log(e);
             var message = JSON.parse(e.data);
             console.log(message);
-            if (message.type == 'onload'){
+            if (message.type == 'onload_debug'){
                 line_event.innerText = message.Event_line;
                 line_user.innerText = message.User_line;
-                table_event_current = message.Event_table;
             }
             if (message.type == 'login'){
                 if (message.login == 'OK'){
                     console.log("You are logged in");
+                    document.getElementById('loginform').style.display = "none";
+                    document.getElementById('button_login').style.display = "none";
+                    document.getElementById('addEvent').removeAttribute('disabled');
                 } else {
+                    document.getElementById('nolog').style.display = "block";
                     console.log("You are NOT logged in");
+                }
+                if (message.type == 'onload_event'){
+                    console.log(message);
                 }
             }
         };

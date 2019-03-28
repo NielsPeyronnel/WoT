@@ -43,17 +43,22 @@ class event extends WebSocket {
         print_r($msg);
 
         switch($msg['type']){
-            case 'onload':
+            case 'onload_debug':
                 $query_event = "SELECT * FROM Event";
                 $query_user = "SELECT * FROM User";
                 $result = $this->conn->query($query_event);
                 $row_event = $result->num_rows;
-                $event_table = $result->fetch_row();
                 $result2 = $this->conn->query($query_user);
                 $row_user = $result2->num_rows;
-                $debug_array = array('type' => 'onload', 'Event_line' => $row_event, 'User_line' => $row_user, 'Event_table' => $event_table);
+                $debug_array = array('type' => 'onload_debug', 'Event_line' => $row_event, 'User_line' => $row_user);
                 $this->send($user->socket, json_encode($debug_array));
                 break;
+            case 'onload_event':
+                $query_event = "SELECT * FROM Event";
+                $result = $this->conn->query($query_event);
+                $table = $result->fetch_row();
+                $array = array('type' => 'onload_event', 'data' => $table);
+                $this->send($user->socket,json_encode($array));
             case 'login':
                 $query_login = 'SELECT * FROM User WHERE User.name="'.$msg[user].'" AND User.password="'.$msg[pass].'"';
                 $result = $this->conn->query($query_login);
