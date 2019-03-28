@@ -321,18 +321,17 @@
         ws.onopen = function () {
             rs.innerHTML = "connecté";
             var debugDB = {
-                type: 'onload_debug'
+                type: 'onloadDebug'
             };
             ws.send(JSON.stringify(debugDB));
             var onloadEvent = {
-                type: 'onload_event'
+                type: 'onloadEvent'
             }
             ws.send(JSON.stringify(onloadEvent));
         };
         // Reception des données
         ws.onmessage = function (e) {
-            console.log(e);
-            var message = JSON.parse(e.data);
+            var message = e;
             console.log(message);
             if (message.type == 'onload_debug'){
                 line_event.innerText = message.Event_line;

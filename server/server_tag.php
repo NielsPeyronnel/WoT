@@ -43,7 +43,7 @@ class event extends WebSocket {
         print_r($msg);
 
         switch($msg['type']){
-            case 'onload_debug':
+            case 'onloadDebug':
                 $query_event = "SELECT * FROM Event";
                 $query_user = "SELECT * FROM User";
                 $result = $this->conn->query($query_event);
@@ -53,12 +53,13 @@ class event extends WebSocket {
                 $debug_array = array('type' => 'onload_debug', 'Event_line' => $row_event, 'User_line' => $row_user);
                 $this->send($user->socket, json_encode($debug_array));
                 break;
-            case 'onload_event':
+            case 'onloadEvent':
                 $query_event = "SELECT * FROM Event";
                 $result = $this->conn->query($query_event);
                 $table = $result->fetch_row();
                 $array = array('type' => 'onload_event', 'data' => $table);
                 $this->send($user->socket,json_encode($array));
+                break;
             case 'login':
                 $query_login = 'SELECT * FROM User WHERE User.name="'.$msg[user].'" AND User.password="'.$msg[pass].'"';
                 $result = $this->conn->query($query_login);
@@ -69,6 +70,7 @@ class event extends WebSocket {
                     $login_answer = array('type' => 'login', 'login' => 'NOK');
                     $this->send($user->socket,json_encode($login_answer));
                 }
+                break;
             default:
                 $this->send($user->socket,"coucou");
         }
