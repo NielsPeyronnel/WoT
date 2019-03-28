@@ -72,7 +72,8 @@ class event extends WebSocket {
                 }
                 break;
             default:
-                $this->send($user->socket,"coucou");
+                $default = array('type' => 'default');
+                $this->send($user->socket,);
         }
 
 

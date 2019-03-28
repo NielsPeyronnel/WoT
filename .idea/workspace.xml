@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2040cf2a-6eab-4a6d-b036-b95cda800856" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server_tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/server_tag.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -72,7 +71,7 @@
           <entry key="css" value="37" />
           <entry key="html" value="6287" />
           <entry key="json" value="7" />
-          <entry key="php" value="2775" />
+          <entry key="php" value="2821" />
           <entry key="sql" value="123" />
           <entry key="txt" value="42" />
         </counts>
@@ -82,7 +81,7 @@
           <entry key="CSS" value="37" />
           <entry key="HTML" value="6287" />
           <entry key="JSON" value="7" />
-          <entry key="PHP" value="2775" />
+          <entry key="PHP" value="2821" />
           <entry key="PLAIN_TEXT" value="42" />
           <entry key="Scratch" value="123" />
         </counts>
@@ -100,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server_tag.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+            <state relative-caret-position="453">
+              <caret line="74" column="54" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -271,12 +270,12 @@
       <workItem from="1553246507257" duration="48000" />
       <workItem from="1553246559540" duration="24648000" />
       <workItem from="1553518063098" duration="6278000" />
-      <workItem from="1553547510876" duration="7351000" />
+      <workItem from="1553547510876" duration="7457000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50877000" />
+    <option name="totallyTimeSpent" value="50983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="982" extended-state="6" />
@@ -409,8 +408,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server_tag.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+        <state relative-caret-position="453">
+          <caret line="74" column="54" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
         </state>
       </provider>
     </entry>
