@@ -336,7 +336,7 @@
                     document.getElementById('loginform').style.display = "none";
                     document.getElementById('button_login').style.display = "none";
                     document.getElementById('addEvent').removeAttribute('disabled');
-                    document.getElementById()
+                    //document.getElementById('creator_');
                 } else {
                     document.getElementById('nolog').style.display = "block";
                     console.log("You are NOT logged in");
@@ -358,15 +358,15 @@
                     var inscription = row.insertCell(6);
                     var creator = row.insertCell(7);
 
-                    creator.id = element.creator;
+                    creator.id = "creator_"+element.creator;
                     creator.getAttribute('hidden');
                     time.innerText = element.time;
                     name.innerText = element.name;
                     nb_personne.innerText = element.nb_personne;
 
-                    requis.id = "signup "+ element.id;
-                    meteo.id = "weather " + element.id;
-                    inscription.id = "register "+ element.id;
+                    requis.id = "signup_"+ element.id;
+                    meteo.id = "weather_" + element.id;
+                    inscription.id = "register_"+ element.id;
 
                     // nombre de personne
 
@@ -386,7 +386,7 @@
                 });
             }
             if (message.type == 'required'){
-                var requis = document.getElementById('signup '+message.id);
+                var requis = document.getElementById('signup_'+message.id);
                 requis.innerText = message.num;
             }
         };
