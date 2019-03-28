@@ -52,7 +52,7 @@ class event extends WebSocket {
                 $this->send($user->socket, json_encode($debug_array));
                 break;
             case 'onloadEvent':
-                $query_event = 'SELECT * FROM Event WHERE DATE(time) = "'.date("YYYY-MM-DD").'"';
+                $query_event = 'SELECT * FROM Event WHERE DATE(time) = "'.date("y-j-d").'"';
                 echo "\n\n[".date("H:i:s")."] --{DEBUG}-- ". $query_event ."\n\n";
                 $result = $this->conn->query($query_event);
                 $table = $result->fetch_all(MYSQLI_ASSOC);
