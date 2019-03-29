@@ -63,8 +63,11 @@ class event extends WebSocket {
                 $result = $this->conn->query($query_login);
                 $login = $result->fetch_row();
                 if ($result->num_rows){
-                    echo "\n\n[".date("H:i:s")."] --{DEBUG LOGIN}-- ". $login ."\n\n";
-                    $login_answer = array('type' => 'login', 'login' => 'OK', 'info' => $login);
+                    $query_signup = 'SELECT eventid from Signup Where userid = '.$login[0];
+                    echo "\n\n[".date("H:i:s")."] --{DEBUG QUERY}-- ". $query_signup ."\n\n";
+                    $result = $this->conn->query($query_login);
+                    $list_event = $result->fetch_all(MYSQLI_ASSOC);
+                    $login_answer = array('type' => 'login', 'login' => 'OK', 'info' => $login, 'liste' => $list_event);
                     $this->send($user->socket,json_encode($login_answer));
                 } else {
                     $login_answer = array('type' => 'login', 'login' => 'NOK');
