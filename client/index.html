@@ -215,6 +215,37 @@
     </div>
 </section>
 
+
+<section class="section" id="eventform" style="display: none">
+    <div id="eventfill">
+        <div class="event-card">
+
+            <div class="card-title">
+                <h1>Ajouter un événement</h1>
+            </div>
+
+            <div class="content is-centered">
+                <form>
+                    <input id="nameEvent" type="text" name="nameEvent" title="nameEvent" placeholder="Nom de l'évènement"
+                           required autofocus>
+                    <input id="dateEvent" type="datetime-local" name="dateEvent" title="dateEvent"
+                           required>
+                    <input id="nbEvent" type="number" name="nbEvent" title="nbEvent" required>
+                    <input id="nbEventrequired" type="number" name="nbEventrequired" title="nbEventrequired" required>
+
+                    <a class="button is-primary" id="buttonEvent">
+                        <span>Envoyer</span>
+                    </a> <a class="button" onclick="document.getElementById('eventform').style.display = 'none'">
+                    <span>Annuler</span>
+
+                </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <section id="current" class="section">
     <div class="container">
         <h1 class="title">Evénements en cours</h1>
@@ -328,7 +359,7 @@
         };
         // Reception des données
         ws.onmessage = function (e) {
-            console.log(e.data);
+            console.log(e);
             if (e.data !== "") {
                 var message = JSON.parse(e.data);
                 console.log(message);
@@ -336,6 +367,7 @@
                     line_event.innerText = message.Event_line;
                     line_user.innerText = message.User_line;
                 }
+
                 if (message.head == 'login') {
                     if (message.login == 'OK') {
                         document.getElementById('loginform').style.display = "none";
@@ -408,10 +440,11 @@
                         var required = {
                             head: 'required',
                             id: element.id,
-                            num: '0'
                         };
                         console.log(required);
-                        ws.send(JSON.stringify(required));
+                        setTimeout(function () {
+                            ws.send(JSON.stringify(required));
+                        }, 500);
                         console.log("envoyé !");
 
 
@@ -420,13 +453,13 @@
                         inscription.innerHTML = '<a id="register_' + element.id + '" class="button is-primary is-outlined register" disabled>S\'inscrire</a>';
                     });
                 }
+
                 if (message.head == 'required') {
                     var requis = document.getElementById('signup_' + message.id);
                     requis.innerText = message.num;
                 }
             }
-            ;
-        }
+        };
         // Erreur avec le socket
         ws.onerror = function () {
             rs.innerHTML = "déconnecté";
