@@ -71,7 +71,7 @@
           <entry key="css" value="37" />
           <entry key="html" value="9083" />
           <entry key="json" value="7" />
-          <entry key="php" value="3776" />
+          <entry key="php" value="3785" />
           <entry key="sql" value="426" />
           <entry key="txt" value="42" />
         </counts>
@@ -81,7 +81,7 @@
           <entry key="CSS" value="37" />
           <entry key="HTML" value="9083" />
           <entry key="JSON" value="7" />
-          <entry key="PHP" value="3776" />
+          <entry key="PHP" value="3785" />
           <entry key="PLAIN_TEXT" value="42" />
           <entry key="Scratch" value="426" />
         </counts>
@@ -101,8 +101,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server/server_tag.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="188">
-                  <caret line="64" column="74" lean-forward="true" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
+                <state relative-caret-position="428">
+                  <caret line="80" column="71" lean-forward="true" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="71" />
                 </state>
               </provider>
             </entry>
@@ -238,7 +238,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553855323365" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553855415839" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -273,12 +273,12 @@
       <workItem from="1553246559540" duration="24648000" />
       <workItem from="1553518063098" duration="6278000" />
       <workItem from="1553547510876" duration="13175000" />
-      <workItem from="1553811846884" duration="11925000" />
+      <workItem from="1553811846884" duration="12018000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68626000" />
+    <option name="totallyTimeSpent" value="68719000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1012" extended-state="6" />
@@ -412,8 +412,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server_tag.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="64" column="74" lean-forward="true" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
+        <state relative-caret-position="428">
+          <caret line="80" column="71" lean-forward="true" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="71" />
         </state>
       </provider>
     </entry>
