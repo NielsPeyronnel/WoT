@@ -36,7 +36,7 @@ class event extends WebSocket {
 
     function process($user, $obj){
         $msg = json_decode($obj,TRUE);
-        print_r("\n\n[".date("H:i:s")."] --{DEBUG}-- ". $msg ."\n\n");
+        print_r("\n\n[".date("H:i:s")."] --{DEBUG}-- ". $msg ."\n\n",TRUE);
 
         switch($msg['type']){
             case 'onloadDebug':
