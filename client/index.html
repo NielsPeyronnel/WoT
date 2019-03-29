@@ -166,7 +166,8 @@
                     </div>
                     <div class="navbar-end">
                         <span class="navbar-item">
-                            <a class="button" id="button_login" onclick="document.getElementById('loginform').style.display = 'block'">
+                            <a class="button" id="button_login"
+                               onclick="document.getElementById('loginform').style.display = 'block'">
                                 <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
                                 <span>Se connecter</span>
                             </a>
@@ -205,7 +206,9 @@
                     <span>Annuler</span>
 
                 </a>
-                    <h3 class="subtitle" id="nolog" style="color: #d82e14; text-align: center; display: none"><bold>Login Incorrect</bold></h3>
+                    <h3 class="subtitle" id="nolog" style="color: #d82e14; text-align: center; display: none">
+                        <bold>Login Incorrect</bold>
+                    </h3>
                 </form>
             </div>
         </div>
@@ -318,64 +321,67 @@
             var onloadEvent = {
                 type: 'onloadEvent'
             };
-            setTimeout(function(){
+            setTimeout(function () {
                 ws.send(JSON.stringify(onloadEvent));
             }, 500);
 
         };
         // Reception des données
         ws.onmessage = function (e) {
-            var message = JSON.parse(e.data);
-            console.log(message);
-            if (message.type == 'onload_debug'){
-                line_event.innerText = message.Event_line;
-                line_user.innerText = message.User_line;
-            }
-            if (message.type == 'login'){
-                if (message.login == 'OK'){
-                    document.getElementById('loginform').style.display = "none";
-                    document.getElementById('button_login').style.display = "none";
-                    document.getElementById('addEvent').removeAttribute('disabled');
-                    Array.from(document.getElementsByClassName('creator_'+message.info[0])).forEach(function (element) {
-                        element.removeAttribute('hidden');
-                        element.innerHTML = '<a id="remove_'+message.info[0]+'" class="button is-primary is-outlined">' +
-                            '<span class="icon"><i class="fas fa-times"</span></a>';
-                    });
-                    Array.from(document.getElementsByClassName('register')).forEach(function (a) {
-                        a.removeAttribute('disabled');
-                        a.onclick = function () {
-                            var signin = {
-                                'type' : 'signin',
-                                'userid' : message.info[0],
-                                'eventid' : a.id.replace(/^register_/i, '')
-                            }
-                            ws.send(JSON.stringify(signin));
-                        }
-                    });
-                    message.liste.forEach(function (element) {
-                        if(document.getElementById(element.eventid)){
-                            var button = document.getElementById('register_'+element.eventid);
-                            button.innerText = 'Se désinscrire';
-                            button.classList.remove('is-primary');
-                            button.classList.add('is-danger');
-                            button.onclick = function () {
-                                var signout = {
-                                    'type' : 'signout',
-                                    'userid' : message.info[0],
-                                    'eventid' : element.eventid
+            console.log(e);
+            if (e.data != null) {
+                var message = JSON.parse(e.data);
+                console.log(message);
+                if (message.type == 'onload_debug') {
+                    line_event.innerText = message.Event_line;
+                    line_user.innerText = message.User_line;
+                }
+                if (message.type == 'login') {
+                    if (message.login == 'OK') {
+                        document.getElementById('loginform').style.display = "none";
+                        document.getElementById('button_login').style.display = "none";
+                        document.getElementById('addEvent').removeAttribute('disabled');
+                        Array.from(document.getElementsByClassName('creator_' + message.info[0])).forEach(function (element) {
+                            element.removeAttribute('hidden');
+                            element.innerHTML = '<a id="remove_' + message.info[0] + '" class="button is-primary is-outlined">' +
+                                '<span class="icon"><i class="fas fa-times"</span></a>';
+                        });
+                        Array.from(document.getElementsByClassName('register')).forEach(function (a) {
+                            a.removeAttribute('disabled');
+                            a.onclick = function () {
+                                var signin = {
+                                    'type': 'signin',
+                                    'userid': message.info[0],
+                                    'eventid': a.id.replace(/^register_/i, '')
                                 }
-                                ws.send(JSON.stringify(signout));
-                            };
-                      }
-                    });
-                } else {
-                    document.getElementById('nolog').style.display = "block";
+                                ws.send(JSON.stringify(signin));
+                            }
+                        });
+                        message.liste.forEach(function (element) {
+                            if (document.getElementById(element.eventid)) {
+                                var button = document.getElementById('register_' + element.eventid);
+                                button.innerText = 'Se désinscrire';
+                                button.classList.remove('is-primary');
+                                button.classList.add('is-danger');
+                                button.onclick = function () {
+                                    var signout = {
+                                        'type': 'signout',
+                                        'userid': message.info[0],
+                                        'eventid': element.eventid
+                                    };
+                                    ws.send(JSON.stringify(signout));
+                                };
+                            }
+                        });
+                    } else {
+                        document.getElementById('nolog').style.display = "block";
+                    }
                 }
             }
-            if (message.type == 'onload_event'){
+            if (message.type == 'onload_event') {
                 var table = document.getElementById('currentEvent');
                 document.getElementById('nb_current').innerText = message.table.length;
-                message.table.forEach(function(element) {
+                message.table.forEach(function (element) {
                     var row = table.insertRow(1);
                     row.id = element.id;
 
@@ -388,34 +394,34 @@
                     var inscription = row.insertCell(6);
                     var creator = row.insertCell(7);
 
-                    creator.className = "creator_"+element.creator;
+                    creator.className = "creator_" + element.creator;
                     creator.getAttribute('hidden');
                     time.innerText = element.time;
                     name.innerText = element.name;
                     nb_personne.innerText = element.nb_personne;
 
-                    requis.id = "signup_"+ element.id;
+                    requis.id = "signup_" + element.id;
                     meteo.id = "weather_" + element.id;
 
                     // nombre de personne
 
-                    var required  = {
-                        type : 'required',
-                        id : element.id,
-                        num : ''
+                    var required = {
+                        type: 'required',
+                        id: element.id,
+                        num: '0'
                     };
 
                     ws.send(JSON.stringify(required));
 
                     localisation.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
                     meteo.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
-                    inscription.innerHTML ='<a id="register_'+ element.id+'" class="button is-primary is-outlined register" disabled>S\'inscrire</a>';
+                    inscription.innerHTML = '<a id="register_' + element.id + '" class="button is-primary is-outlined register" disabled>S\'inscrire</a>';
 
                     console.log(element);
                 });
             }
-            if (message.type == 'required'){
-                var requis = document.getElementById('signup_'+message.id);
+            if (message.type == 'required') {
+                var requis = document.getElementById('signup_' + message.id);
                 requis.innerText = message.num;
             }
         };
@@ -437,16 +443,14 @@
 
             if ((user.value) != '' && (pass.value != '')) {
                 var data = {
-                    "type" : 'login',
-                    "user" : user,
-                    "pass" : pass
-                    };
+                    "type": 'login',
+                    "user": user,
+                    "pass": pass
+                };
                 data = JSON.stringify(data);
                 ws.send(data);
             }
         };
-
-
 
 
     } else {
