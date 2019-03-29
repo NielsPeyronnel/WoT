@@ -63,6 +63,7 @@ class event extends WebSocket {
                 $result = $this->conn->query($query_login);
                 $login = $result->fetch_row();
                 if ($result->num_rows){
+                    echo "\n\n[".date("H:i:s")."] --{DEBUG LOGIN}-- ". $login ."\n\n";
                     $login_answer = array('type' => 'login', 'login' => 'OK', 'info' => $login);
                     $this->send($user->socket,json_encode($login_answer));
                 } else {
@@ -73,7 +74,6 @@ class event extends WebSocket {
             case 'required':
                 var_dump("coucou");
                 $query_required = 'SELECT COUNT(*) FROM Signup Where eventid ="'.$msg['id'].'"';
-                echo "\n\n[".date("H:i:s")."] --{DEBUG REQUETE}-- ". $query_required ."\n\n";
                 $result = $this->conn->query($query_required);
                 $number = $result->fetch_row();
                 $array = array ('type' => 'required', 'id' => $msg['id'], 'num' => $number );

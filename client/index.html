@@ -336,7 +336,14 @@
                     document.getElementById('loginform').style.display = "none";
                     document.getElementById('button_login').style.display = "none";
                     document.getElementById('addEvent').removeAttribute('disabled');
-                    //document.getElementById('creator_');
+                    Array.from(document.getElementsByClassName('creator_'+message.info[0])).forEach(function (element) {
+                        element.removeAttribute('hidden');
+                        element.innerHTML = '<a id="remove_'+message.info[0]+'" class="button is-primary is-outlined">' +
+                            '<span class="icon"><i class="fas fa-times"</span></a>';
+                    });
+                    Array.from(document.getElementById('currentEvent').children).forEach(function (element) {
+                        console.log(element);
+                    });
                 } else {
                     document.getElementById('nolog').style.display = "block";
                     console.log("You are NOT logged in");
@@ -358,7 +365,7 @@
                     var inscription = row.insertCell(6);
                     var creator = row.insertCell(7);
 
-                    creator.id = "creator_"+element.creator;
+                    creator.className = "creator_"+element.creator;
                     creator.getAttribute('hidden');
                     time.innerText = element.time;
                     name.innerText = element.name;
@@ -366,7 +373,6 @@
 
                     requis.id = "signup_"+ element.id;
                     meteo.id = "weather_" + element.id;
-                    inscription.id = "register_"+ element.id;
 
                     // nombre de personne
 
@@ -380,7 +386,7 @@
 
                     localisation.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
                     meteo.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
-                    inscription.innerHTML ='<a class="button is-primary is-outlined">S\'inscrire</a>';
+                    inscription.innerHTML ='<a id="register_'+ element.id+'" class="button is-primary is-outlined">S\'inscrire</a>';
 
                     console.log(element);
                 });
