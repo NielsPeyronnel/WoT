@@ -75,12 +75,17 @@ class event extends WebSocket {
                 }
                 break;
             case 'required':
-                var_dump("coucou");
                 $query_required = 'SELECT COUNT(*) FROM Signup Where eventid ="'.$msg['id'].'"';
                 $result = $this->conn->query($query_required);
                 $number = $result->fetch_row();
                 $array = array ('type' => 'required', 'id' => $msg['id'], 'num' => $number );
                 $this->send($user->socket,json_encode($array));
+                break;
+            case 'signin':
+                echo "\n\n[".date("H:i:s")."] --{DEBUG EVENT}-- Inscription Evenement OK\n\n";
+                break;
+            case 'signout':
+                echo "\n\n[".date("H:i:s")."] --{DEBUG EVENT}-- Désinscription Evenement OK\n\n";
                 break;
             default:
                 $default = array('type' => 'default');

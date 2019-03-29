@@ -289,6 +289,7 @@
 
 <script>
     var ws = null;
+    var userid = null;
 
     try {
         ws = new WebSocket("ws://54.38.38.118:1337");
@@ -341,8 +342,33 @@
                         element.innerHTML = '<a id="remove_'+message.info[0]+'" class="button is-primary is-outlined">' +
                             '<span class="icon"><i class="fas fa-times"</span></a>';
                     });
-                    Array.from(document.getElementById('currentEvent').children).forEach(function (element) {
-                        console.log(element);
+                    Array.from(document.getElementsByClassName('register')).forEach(function (a) {
+                        a.removeAttribute('disabled');
+                        a.onclick = function () {
+                            var signin = {
+                                'type' : 'signin',
+                                'userid' : message.info[0],
+                                'eventid' : a.id.replace(/^register_/i, '')
+                            }
+                            ws.send(JSON.stringify(signin));
+                        }
+                    });
+                    message.liste.forEach(function (element) {
+                        console.log(document.getElementById('register_'+element.eventid));
+                        if(document.getElementById(element.eventid)){
+                            var button = document.getElementById('register_'+element.eventid);
+                            button.innerText = 'Se désinscrire';
+                            button.classList.remove('is-primary');
+                            button.classList.add('is-danger');
+                            button.onclick = function () {
+                                var signout = {
+                                    'type' : 'signout',
+                                    'userid' : message.info[0],
+                                    'eventid' : element.eventid
+                                }
+                                ws.send(JSON.stringify(signout));
+                            };
+                      }
                     });
                 } else {
                     document.getElementById('nolog').style.display = "block";
@@ -386,7 +412,7 @@
 
                     localisation.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
                     meteo.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
-                    inscription.innerHTML ='<a id="register_'+ element.id+'" class="button is-primary is-outlined">S\'inscrire</a>';
+                    inscription.innerHTML ='<a id="register_'+ element.id+'" class="button is-primary is-outlined register" disabled>S\'inscrire</a>';
 
                     console.log(element);
                 });
