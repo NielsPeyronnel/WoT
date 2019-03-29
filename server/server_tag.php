@@ -83,9 +83,25 @@ class event extends WebSocket {
                 break;
             case 'signin':
                 echo "\n\n[".date("H:i:s")."] --{DEBUG EVENT}-- Inscription Evenement OK\n\n";
+                $query_signin = 'INSERT INTO `Signup`(`userid`, `eventid`) VALUES ('.$msg['userid'].','.$msg['eventid'].')';
+                if ($this->conn->query($query_signin)){
+                    $array = array ('type' => 'signin', 'info' => 'OK');
+                    $this->send($user->socket,json_encode($array));
+                } else {
+                    $array = array ('type' => 'signin', 'info' => 'NOK');
+                    $this->send($user->socket,json_encode($array));
+                }
                 break;
             case 'signout':
                 echo "\n\n[".date("H:i:s")."] --{DEBUG EVENT}-- Désinscription Evenement OK\n\n";
+                $query_signout = 'DELETE FROM `Signup` WHERE userid = "'.$msg['userid'].'" AND eventid = "'.$msg['eventid'].'"';
+                if ($this->conn->query($query_signout)){
+                    $array = array ('type' => 'signout', 'info' => 'OK');
+                    $this->send($user->socket,json_encode($array));
+                } else {
+                    $array = array ('type' => 'signout', 'info' => 'NOK');
+                    $this->send($user->socket,json_encode($array));
+                }
                 break;
             default:
                 $default = array('type' => 'default');

@@ -333,7 +333,6 @@
             }
             if (message.type == 'login'){
                 if (message.login == 'OK'){
-                    console.log("You are logged in");
                     document.getElementById('loginform').style.display = "none";
                     document.getElementById('button_login').style.display = "none";
                     document.getElementById('addEvent').removeAttribute('disabled');
@@ -354,7 +353,6 @@
                         }
                     });
                     message.liste.forEach(function (element) {
-                        console.log(document.getElementById('register_'+element.eventid));
                         if(document.getElementById(element.eventid)){
                             var button = document.getElementById('register_'+element.eventid);
                             button.innerText = 'Se désinscrire';
@@ -372,7 +370,6 @@
                     });
                 } else {
                     document.getElementById('nolog').style.display = "block";
-                    console.log("You are NOT logged in");
                 }
             }
             if (message.type == 'onload_event'){
