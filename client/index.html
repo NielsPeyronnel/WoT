@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOChead html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -195,9 +195,9 @@
 
             <div class="content is-centered">
                 <form>
-                    <input id="username" type="text" name="username" title="username" placeholder="Nom d'utilisateur"
+                    <input id="username" head="text" name="username" title="username" placeholder="Nom d'utilisateur"
                            required autofocus>
-                    <input id="password" type="password" name="password" title="password" placeholder="Mot de passe"
+                    <input id="password" head="password" name="password" title="password" placeholder="Mot de passe"
                            required>
 
                     <a class="button is-primary" id="buttonLogin">
@@ -315,11 +315,11 @@
         ws.onopen = function () {
             rs.innerHTML = "connecté";
             var debugDB = {
-                type: 'onloadDebug'
+                head: 'onloadDebug'
             };
             ws.send(JSON.stringify(debugDB));
             var onloadEvent = {
-                type: 'onloadEvent'
+                head: 'onloadEvent'
             };
             setTimeout(function () {
                 ws.send(JSON.stringify(onloadEvent));
@@ -332,11 +332,11 @@
             if (e.data != null) {
                 var message = JSON.parse(e.data);
                 console.log(message);
-                if (message.type == 'onload_debug') {
+                if (message.head == 'onload_debug') {
                     line_event.innerText = message.Event_line;
                     line_user.innerText = message.User_line;
                 }
-                if (message.type == 'login') {
+                if (message.head == 'login') {
                     if (message.login == 'OK') {
                         document.getElementById('loginform').style.display = "none";
                         document.getElementById('button_login').style.display = "none";
@@ -350,7 +350,7 @@
                             a.removeAttribute('disabled');
                             a.onclick = function () {
                                 var signin = {
-                                    'type': 'signin',
+                                    'head': 'signin',
                                     'userid': message.info[0],
                                     'eventid': a.id.replace(/^register_/i, '')
                                 }
@@ -365,7 +365,7 @@
                                 button.classList.add('is-danger');
                                 button.onclick = function () {
                                     var signout = {
-                                        'type': 'signout',
+                                        'head': 'signout',
                                         'userid': message.info[0],
                                         'eventid': element.eventid
                                     };
@@ -378,7 +378,7 @@
                     }
                 }
             }
-            if (message.type == 'onload_event') {
+            if (message.head == 'onload_event') {
                 var table = document.getElementById('currentEvent');
                 document.getElementById('nb_current').innerText = message.table.length;
                 message.table.forEach(function (element) {
@@ -406,7 +406,7 @@
                     // nombre de personne
 
                     var required = {
-                        type: 'required',
+                        head: 'required',
                         id: element.id,
                         num: '0'
                     };
@@ -420,7 +420,7 @@
                     console.log(element);
                 });
             }
-            if (message.type == 'required') {
+            if (message.head == 'required') {
                 var requis = document.getElementById('signup_' + message.id);
                 requis.innerText = message.num;
             }
@@ -443,7 +443,7 @@
 
             if ((user.value) != '' && (pass.value != '')) {
                 var data = {
-                    "type": 'login',
+                    "head": 'login',
                     "user": user,
                     "pass": pass
                 };

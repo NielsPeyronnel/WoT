@@ -102,8 +102,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server/server_tag.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="814">
-                  <caret line="80" column="84" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
+                <state relative-caret-position="172">
+                  <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -124,15 +124,15 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="138">
-                  <caret line="331" column="30" selection-start-line="331" selection-start-column="30" selection-end-line="331" selection-end-column="30" />
+                <state relative-caret-position="168">
+                  <caret line="445" column="25" selection-start-line="445" selection-start-column="25" selection-end-line="445" selection-end-column="25" />
                   <folding>
                     <element signature="n#style#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#h3#0;n#form#0;n#div#1;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="e#6767#6773#1" expanded="true" />
-                    <element signature="e#8382#8388#1" expanded="true" />
-                    <element signature="e#8495#8501#1" expanded="true" />
-                    <element signature="e#8613#8619#1" expanded="true" />
+                    <element signature="e#6844#6850#1" expanded="true" />
+                    <element signature="e#8459#8465#1" expanded="true" />
+                    <element signature="e#8572#8578#1" expanded="true" />
+                    <element signature="e#8690#8696#1" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -153,6 +153,7 @@
     <findStrings>
       <find>username</find>
       <find>currentEvent</find>
+      <find>type</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,8 +171,8 @@
         <option value="$PROJECT_DIR$/server/test.bot.php" />
         <option value="$PROJECT_DIR$/server/composer.json" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d1f8c048-b708-4675-bba3-2e8d99639075/console.sql" />
-        <option value="$PROJECT_DIR$/server/server_tag.php" />
         <option value="$PROJECT_DIR$/client/index.html" />
+        <option value="$PROJECT_DIR$/server/server_tag.php" />
       </list>
     </option>
   </component>
@@ -239,7 +240,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553856816905" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553857039890" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -274,12 +275,12 @@
       <workItem from="1553246559540" duration="24648000" />
       <workItem from="1553518063098" duration="6278000" />
       <workItem from="1553547510876" duration="13175000" />
-      <workItem from="1553811846884" duration="13415000" />
+      <workItem from="1553811846884" duration="13637000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70116000" />
+    <option name="totallyTimeSpent" value="70338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1012" extended-state="6" />
@@ -304,10 +305,10 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32921347" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="12" visible="true" weight="0.3445652" />
+      <window_info anchor="bottom" id="Database Console" order="12" visible="true" weight="0.3445652" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24973376" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
@@ -396,25 +397,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server_tag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="80" column="84" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="331" column="30" selection-start-line="331" selection-start-column="30" selection-end-line="331" selection-end-column="30" />
+        <state relative-caret-position="168">
+          <caret line="445" column="25" selection-start-line="445" selection-start-column="25" selection-end-line="445" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h3#0;n#form#0;n#div#1;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#6767#6773#1" expanded="true" />
-            <element signature="e#8382#8388#1" expanded="true" />
-            <element signature="e#8495#8501#1" expanded="true" />
-            <element signature="e#8613#8619#1" expanded="true" />
+            <element signature="e#6844#6850#1" expanded="true" />
+            <element signature="e#8459#8465#1" expanded="true" />
+            <element signature="e#8572#8578#1" expanded="true" />
+            <element signature="e#8690#8696#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server_tag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
         </state>
       </provider>
     </entry>

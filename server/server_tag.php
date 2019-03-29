@@ -40,7 +40,7 @@ class event extends WebSocket {
         print_r($msg);
         echo"\n[".date("H:i:s")."] --{FIN DEBUG MESSAGE}-- \n\n";
 
-        switch($msg['type']){
+        switch($msg['head']){
             case 'onloadDebug':
                 $query_event = "SELECT * FROM Event";
                 $query_user = "SELECT * FROM User";
@@ -48,14 +48,14 @@ class event extends WebSocket {
                 $row_event = $result->num_rows;
                 $result2 = $this->conn->query($query_user);
                 $row_user = $result2->num_rows;
-                $debug_array = array('type' => 'onload_debug', 'Event_line' => $row_event, 'User_line' => $row_user);
+                $debug_array = array('head' => 'onload_debug', 'Event_line' => $row_event, 'User_line' => $row_user);
                 $this->send($user->socket, json_encode($debug_array));
                 break;
             case 'onloadEvent':
                 $query_event = 'SELECT * FROM Event WHERE DATE(time) = "'.date("Y-m-d").'"';
                 $result = $this->conn->query($query_event);
                 $table = $result->fetch_all(MYSQLI_ASSOC);
-                $array = array('type' => 'onload_event', 'table' => $table);
+                $array = array('head' => 'onload_event', 'table' => $table);
                 $this->send($user->socket,json_encode($array));
                 break;
             case 'login':
@@ -67,10 +67,10 @@ class event extends WebSocket {
                     echo "\n\n[".date("H:i:s")."] --{DEBUG QUERY}-- ". $query_signup ."\n\n";
                     $result = $this->conn->query($query_signup);
                     $list_event = $result->fetch_all(MYSQLI_ASSOC);
-                    $login_answer = array('type' => 'login', 'login' => 'OK', 'info' => $login, 'liste' => $list_event);
+                    $login_answer = array('head' => 'login', 'login' => 'OK', 'info' => $login, 'liste' => $list_event);
                     $this->send($user->socket,json_encode($login_answer));
                 } else {
-                    $login_answer = array('type' => 'login', 'login' => 'NOK');
+                    $login_answer = array('head' => 'login', 'login' => 'NOK');
                     $this->send($user->socket,json_encode($login_answer));
                 }
                 break;
@@ -79,17 +79,17 @@ class event extends WebSocket {
                 $result = $this->conn->query($query_required);
                 $number = $result->num_rows;
                 echo "\n\n[".date("H:i:s")."] --{DEBUG QUERY NUMBER}-- ". $number ."\n\n";
-                $array = array ('type' => 'required', 'id' => $msg['id'], 'num' => $number );
+                $array = array ('head' => 'required', 'id' => $msg['id'], 'num' => $number );
                 $this->send($user->socket,json_encode($array));
                 break;
             case 'signin':
                 echo "\n\n[".date("H:i:s")."] --{DEBUG EVENT}-- Inscription Evenement OK\n\n";
                 $query_signin = 'INSERT INTO `Signup`(`userid`, `eventid`) VALUES ('.$msg['userid'].','.$msg['eventid'].')';
                 if ($this->conn->query($query_signin)){
-                    $array = array ('type' => 'signin', 'info' => 'OK');
+                    $array = array ('head' => 'signin', 'info' => 'OK');
                     $this->send($user->socket,json_encode($array));
                 } else {
-                    $array = array ('type' => 'signin', 'info' => 'NOK');
+                    $array = array ('head' => 'signin', 'info' => 'NOK');
                     $this->send($user->socket,json_encode($array));
                 }
                 break;
@@ -97,15 +97,15 @@ class event extends WebSocket {
                 echo "\n\n[".date("H:i:s")."] --{DEBUG EVENT}-- Désinscription Evenement OK\n\n";
                 $query_signout = 'DELETE FROM `Signup` WHERE userid = "'.$msg['userid'].'" AND eventid = "'.$msg['eventid'].'"';
                 if ($this->conn->query($query_signout)){
-                    $array = array ('type' => 'signout', 'info' => 'OK');
+                    $array = array ('head' => 'signout', 'info' => 'OK');
                     $this->send($user->socket,json_encode($array));
                 } else {
-                    $array = array ('type' => 'signout', 'info' => 'NOK');
+                    $array = array ('head' => 'signout', 'info' => 'NOK');
                     $this->send($user->socket,json_encode($array));
                 }
                 break;
             default:
-                $default = array('type' => 'default');
+                $default = array('head' => 'default');
                 $this->send($user->socket,$default);
         }
         $msg = NULL;
