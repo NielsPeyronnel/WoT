@@ -39,6 +39,9 @@ class event extends WebSocket {
         echo"\n\n[".date("H:i:s")."] --{DEBUT DEBUG MESSAGE}-- \n";
         print_r($msg);
         echo"\n[".date("H:i:s")."] --{FIN DEBUG MESSAGE}-- \n\n";
+        echo"\n\n[".date("H:i:s")."] --{DEBUT DEBUG OBJET}-- \n";
+        print_r($obj);
+        echo"\n[".date("H:i:s")."] --{FIN DEBUG OBJET}-- \n\n";
 
         switch($msg['head']){
             case 'onloadDebug':
@@ -108,9 +111,6 @@ class event extends WebSocket {
                 $default = array('head' => 'default');
                 $this->send($user->socket,$default);
         }
-        $msg = NULL;
-
-        //$this->send($user->socket,$row);
     }
 }
 

@@ -328,8 +328,8 @@
         };
         // Reception des données
         ws.onmessage = function (e) {
-            console.log(e);
-            if (e.data != null) {
+            console.log(e.data);
+            if (e.data !== "") {
                 var message = JSON.parse(e.data);
                 console.log(message);
                 if (message.head == 'onload_debug') {
@@ -377,55 +377,56 @@
                         document.getElementById('nolog').style.display = "block";
                     }
                 }
+
+                if (message.head == 'onload_event') {
+                    var table = document.getElementById('currentEvent');
+                    document.getElementById('nb_current').innerText = message.table.length;
+                    message.table.forEach(function (element) {
+                        var row = table.insertRow(1);
+                        row.id = element.id;
+
+                        var time = row.insertCell(0);
+                        var name = row.insertCell(1);
+                        var nb_personne = row.insertCell(2);
+                        var requis = row.insertCell(3);
+                        var localisation = row.insertCell(4);
+                        var meteo = row.insertCell(5);
+                        var inscription = row.insertCell(6);
+                        var creator = row.insertCell(7);
+
+                        creator.className = "creator_" + element.creator;
+                        creator.getAttribute('hidden');
+                        time.innerText = element.time;
+                        name.innerText = element.name;
+                        nb_personne.innerText = element.nb_personne;
+
+                        requis.id = "signup_" + element.id;
+                        meteo.id = "weather_" + element.id;
+
+                        // nombre de personne
+
+                        var required = {
+                            head: 'required',
+                            id: element.id,
+                            num: '0'
+                        };
+                        console.log(required);
+                        ws.send(JSON.stringify(required));
+                        console.log("envoyé !");
+
+
+                        localisation.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
+                        meteo.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
+                        inscription.innerHTML = '<a id="register_' + element.id + '" class="button is-primary is-outlined register" disabled>S\'inscrire</a>';
+                    });
+                }
+                if (message.head == 'required') {
+                    var requis = document.getElementById('signup_' + message.id);
+                    requis.innerText = message.num;
+                }
             }
-            if (message.head == 'onload_event') {
-                var table = document.getElementById('currentEvent');
-                document.getElementById('nb_current').innerText = message.table.length;
-                message.table.forEach(function (element) {
-                    var row = table.insertRow(1);
-                    row.id = element.id;
-
-                    var time = row.insertCell(0);
-                    var name = row.insertCell(1);
-                    var nb_personne = row.insertCell(2);
-                    var requis = row.insertCell(3);
-                    var localisation = row.insertCell(4);
-                    var meteo = row.insertCell(5);
-                    var inscription = row.insertCell(6);
-                    var creator = row.insertCell(7);
-
-                    creator.className = "creator_" + element.creator;
-                    creator.getAttribute('hidden');
-                    time.innerText = element.time;
-                    name.innerText = element.name;
-                    nb_personne.innerText = element.nb_personne;
-
-                    requis.id = "signup_" + element.id;
-                    meteo.id = "weather_" + element.id;
-
-                    // nombre de personne
-
-                    var required = {
-                        head: 'required',
-                        id: element.id,
-                        num: '0'
-                    };
-
-                    ws.send(JSON.stringify(required));
-
-                    localisation.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
-                    meteo.innerHTML = '<span class="icon"><i class="fas fa-sun"</span>';
-                    inscription.innerHTML = '<a id="register_' + element.id + '" class="button is-primary is-outlined register" disabled>S\'inscrire</a>';
-
-                    console.log(element);
-                });
-            }
-            if (message.head == 'required') {
-                var requis = document.getElementById('signup_' + message.id);
-                requis.innerText = message.num;
-            }
-        };
-
+            ;
+        }
         // Erreur avec le socket
         ws.onerror = function () {
             rs.innerHTML = "déconnecté";
